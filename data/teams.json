@@ -1,0 +1,301 @@
+{
+  "1610612737": {
+    "TeamFullName": "Atlanta Hawks",
+    "Abbrev": "ATL",
+    "TeamName": "Hawks",
+    "City": "Atlanta",
+    "AlternateLogo": "/images/alternatelogos/hawks.png",
+    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryColor": "#E03A3E"
+  },
+
+  "1610612738": {
+    "TeamFullName": "Boston Celtics",
+    "Abbrev": "BOS",
+    "TeamName": "Celtics",
+    "City": "Boston",
+    "AlternateLogo":  "/images/alternatelogos/celtics.png",
+    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryColor": "#007A33"
+  },
+
+  "1610612751": {
+    "TeamFullName": "Brooklyn Nets",
+    "Abbrev": "BKN",
+    "TeamName": "Nets",
+    "City": "Brooklyn",
+    "AlternateLogo":  "/images/alternatelogos/nets.png",
+    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryColor": "#000000"
+  },
+
+  "1610612766": {
+    "TeamFullName": "Charlotte Hornets",
+    "Abbrev": "CHA",
+    "TeamName": "Hornets",
+    "City": "Charlotte",
+    "AlternateLogo":  "/images/alternatelogos/hornets.png",
+    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryColor": "#1D1160"
+  },
+
+  "1610612741": {
+    "TeamFullName": "Chicago Bulls",
+    "Abbrev": "CHI",
+    "TeamName": "Bulls",
+    "City": "Chicago",
+    "AlternateLogo":  "/images/alternatelogos/bulls.png",
+    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryColor": "#CE1141"
+  },
+
+  "1610612739": {
+    "TeamFullName": "Cleveland Cavaliers",
+    "Abbrev": "CLE",
+    "TeamName": "Cavaliers",
+    "City": "Cleveland",
+    "AlternateLogo":  "/images/alternatelogos/cavaliers.png",
+    "PrimaryLogo": "/images/primarylogos/cavaliers.png",
+    "PrimaryColor": "#860038"
+  },
+
+  "1610612742": {
+    "TeamFullName": "Dallas Mavericks",
+    "Abbrev": "DAL",
+    "TeamName": "Mavericks",
+    "City": "Dallas",
+    "AlternateLogo": "/images/alternatelogos/mavericks.png",
+    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryColor": "#00538C"
+  },
+
+  "1610612743": {
+    "TeamFullName": "Denver Nuggets",
+    "Abbrev": "DEN",
+    "TeamName": "Nuggets",
+    "City": "Denver",
+    "AlternateLogo": "/images/alternatelogos/nuggets.png",
+    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryColor": "#0E2240"
+  },
+  
+  "1610612765": {
+    "TeamFullName": "Detroit Pistons",
+    "Abbrev": "DET",
+    "TeamName": "Pistons",
+    "City": "Detroit",
+    "AlternateLogo": "/images/alternatelogos/pistons.png",
+    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryColor": "#C8102E"
+  },
+  
+  "1610612744": {
+    "TeamFullName": "Golden State Warriors",
+    "Abbrev": "GSW",
+    "TeamName": "Warriors",
+    "City": "Golden State",
+    "AlternateLogo": "/images/alternatelogos/warriors.png",
+    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryColor": "#1D428A"
+  },
+
+  "1610612745": {
+    "TeamFullName": "Houston Rockets",
+    "Abbrev": "HOU",
+    "TeamName": "Rockets",
+    "City": "Houston",
+    "AlternateLogo": "/images/alternatelogos/rockets.png",
+    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryColor": "#CE1141"
+  },
+
+  "1610612754": {
+    "TeamFullName": "Indiana Pacers",
+    "Abbrev": "IND",
+    "TeamName": "Pacers",
+    "City": "Indiana",
+    "AlternateLogo": "/images/alternatelogos/pacers.png",
+    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryColor": "#002D62"
+  },
+
+  "1610612746": {
+    "TeamFullName": "Los Angeles Clippers",
+    "Abbrev": "LAC",
+    "TeamName": "Clippers",
+    "City": "Los Angeles",
+    "AlternateLogo": "/images/alternatelogos/clippers.png",
+    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryColor": "#C8102E"
+  },
+  
+  "1610612747": {
+    "TeamFullName": "Los Angeles Lakers",
+    "Abbrev": "LAL",
+    "TeamName": "Lakers",
+    "City": "Los Angeles",
+    "AlternateLogo": "/images/alternatelogos/lakers.png",
+    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryColor": "#552583"
+  },
+  
+  "1610612763": {
+    "TeamFullName": "Memphis Grizzlies",
+    "Abbrev": "MEM",
+    "TeamName": "Grizzlies",
+    "City": "Memphis",
+    "AlternateLogo":"/images/alternatelogos/grizzlies.png",
+    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryColor": "#5D76A9"
+  },
+
+  "1610612748": {
+    "TeamFullName": "Miami Heat",
+    "Abbrev": "MIA",
+    "TeamName": "Heat",
+    "City": "Miami",
+    "AlternateLogo":"/images/alternatelogos/heat.png",
+    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryColor": "#98002E"
+  },
+
+  "1610612749": {
+    "TeamFullName": "Milwaukee Bucks",
+    "Abbrev": "MIL",
+    "TeamName": "Bucks",
+    "City": "Milwaukee",
+    "AlternateLogo":"/images/alternatelogos/bucks.png",
+    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryColor": "#00471B"
+  },
+  
+  "1610612750": {
+    "TeamFullName": "Minnesota Timberwolves",
+    "Abbrev": "MIN",
+    "TeamName": "Timberwolves",
+    "City": "Minnesota",
+    "AlternateLogo": "/images/alternatelogos/timberwolves.png",
+    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryColor": "#0C2340"
+  },
+
+  "1610612740": {
+    "TeamFullName": "New Orleans Pelicans",
+    "Abbrev": "NOP",
+    "TeamName": "Pelicans",
+    "City": "New Orleans",
+    "AlternateLogo": "/images/alternatelogos/pelicans.png",
+    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryColor": "#0C2340"
+  },
+
+  "1610612752": {
+    "TeamFullName": "New York Knicks",
+    "Abbrev": "NYK",
+    "TeamName": "Knicks",
+    "City": "New York",
+    "AlternateLogo": "/images/alternatelogos/knicks.png",
+    "PrimaryLogo": "/images/primarylogos/knicks.png",
+    "PrimaryColor": "#006BB6"
+  },
+  
+  "1610612760": {
+    "TeamFullName": "Oklahoma City Thunder",
+    "Abbrev": "OKC",
+    "TeamName": "Thunder",
+    "City": "Oklahoma City",
+    "AlternateLogo": "/images/alternatelogos/thunder.png",
+    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryColor": "#007AC1"
+  },
+  
+  "1610612753": {
+    "TeamFullName": "Orlando Magic",
+    "Abbrev": "ORL",
+    "TeamName": "Magic",
+    "City": "Orlando",
+    "AlternateLogo": "/images/alternatelogos/magic.png",
+    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryColor": "#0077C0"
+  },
+
+  "1610612755": {
+    "TeamFullName": "Philadelphia 76ers",
+    "Abbrev": "PHI",
+    "TeamName": "76ers",
+    "City": "Philadelphia",
+    "AlternateLogo": "/images/alternatelogos/76ers.png",
+    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryColor": "#006BB6"
+  },
+
+  "1610612756": {
+    "TeamFullName": "Phoenix Suns",
+    "Abbrev": "PHX",
+    "TeamName": "Suns",
+    "City": "Phoenix",
+    "AlternateLogo": "/images/alternatelogos/suns.png",
+    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryColor": "#1D1160"
+  },
+
+  "1610612757": {
+    "TeamFullName": "Portland Trail Blazers",
+    "Abbrev": "POR",
+    "TeamName": "Trail Blazers",
+    "City": "Portland",
+    "AlternateLogo": "/images/alternatelogos/trailblazers.png",
+    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryColor": "#E03A3E"
+  },
+
+  "1610612758": {
+    "TeamFullName": "Sacramento Kings",
+    "Abbrev": "SAC",
+    "TeamName": "Kings",
+    "City": "Sacramento",
+    "AlternateLogo": "/images/alternatelogos/kings.png",
+    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryColor": "#5A2D81"
+  },
+
+  "1610612759": {
+    "TeamFullName": "San Antonio Spurs",
+    "Abbrev": "SAS",
+    "TeamName": "Spurs",
+    "City": "San Antonio",
+    "AlternateLogo": "/images/alternatelogos/spurs.png",
+    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryColor": "#C4CED4"
+  },
+
+  "1610612761": {
+    "TeamFullName": "Toronto Raptors",
+    "Abbrev": "TOR",
+    "TeamName": "Raptors",
+    "City": "Toronto",
+    "AlternateLogo": "/images/alternatelogos/raptors.png",
+    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryColor": "#CE1141"
+  },
+
+  "1610612762": {
+    "TeamFullName": "Utah Jazz",
+    "Abbrev": "UTA",
+    "TeamName": "Jazz",
+    "City": "Utah",
+    "AlternateLogo": "/images/alternatelogos/jazz.png",
+    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryColor": "#002B5C"
+  },
+  
+  "1610612764": {
+    "TeamFullName": "Washington Wizards",
+    "Abbrev": "WAS",
+    "TeamName": "Wizards",
+    "City": "Washington",
+    "AlternateLogo": "/images/alternatelogos/Wizards.png",
+    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryColor": "#002B5C"
+  }
+}

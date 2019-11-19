@@ -1,0 +1,29 @@
+---------TO DO---------
+-split server file into mulitple files (SMALL)
+-arrow keys for prev/next day (MED)
+-toggle date with button on bottom left of screen
+	-stay in position as user scrolls
+-unique url for homepage -> include date value (MED)
+-optimize live updating (BIG)
+-cache previous periods (quarters) in gamepage component
+
+
+
+---------TOUCH UP---------
+-keys(complete-ish)
+	-still need to find out if key placement is most efficient
+	-done with duplicate issue
+-alter sorting???
+	-show most active games on top -> how to sort active vs halftime games?
+	-halftime games being placed above active games
+
+
+---------FINISHED---------
+-home page team sorting
+-hover css
+-updating date before each fetch
+	-need to consider when date is not today (eg when dates have been manually changed thru buttons, etc.)
+	-where to place new date(), or just in general, where and when to update new date()
+
+
+
