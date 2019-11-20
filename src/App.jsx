@@ -40,12 +40,13 @@ class App extends React.Component {
     // d = new Date('November 18 2019')
     // d.setTime(d.getTime() - 21*60*1000);
     // let d;
-    // if(this.props.location.state) d = this.props.location.state.date
-    // else d = this.props.match.params.date
+    if(this.props.location.state) d = this.props.location.state.date
+    else d = this.props.match.params.date
 
     this.state = {
         date: d,
         games: [],
+        redirect: false
       }
   }
   
@@ -89,7 +90,7 @@ class App extends React.Component {
       let d = state.date;
       d = moment(d, "YYYYMMDD").toDate();
       d.setDate(d.getDate() + 1);
-      return {date: dateToString(d)}
+      return {date: dateToString(d), redirect: true}
     }, () => this.fetchGames())
   }
 
@@ -99,7 +100,7 @@ class App extends React.Component {
       d = moment(d, "YYYYMMDD").toDate();
       d.setDate(d.getDate() - 1);
       // console.log(d)
-      return {date: dateToString(d)}
+      return {date: dateToString(d), redirect: true}
     }, () => this.fetchGames())
   }
 
@@ -119,11 +120,29 @@ class App extends React.Component {
     }
   }
 
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log("************UPDATING************")
+  //   console.log("S: " + prevState.redirect)
+  //   console.log("P: " + prevProps.location.state.redirect)
+  //   if(prevProps.location.state.redirect) {
+  //     this.setState((state) => {
+  //       return {redirect: false}
+  //     }, () => {
+  //       clearInterval(this.interval)
+  //       this.interval = setInterval(()=>this.fetchGames(), 5000);
+  //     })
+  //   }
+
+  //   console.log("F: " + this.state.redirect)
+  // }
+
   renderRedirect = () => {
+    console.log("RR: " + this.state.redirect)
     return <Redirect to={{
       pathname: "/" + this.state.date,
       state: {
-        date: this.state.date
+        date: this.state.date,
+        redirect: this.state.redirect
       }
     }}/>
   }
@@ -131,38 +150,26 @@ class App extends React.Component {
   //fill in GameComponent with state object, one game at a time
   render() {
     const rows = [];
-  
+    
     let date = this.state.date;
-
-    let i = 0;
-    let element;
-
-    while(i < this.state.games.length) {
-      let gameObject = this.state.games[i][Object.keys(this.state.games[i])[0]];
+    console.log("************RENDERING************")
+    console.log("R: " + this.state.redirect)
+    this.state.games.forEach((obj, index) => {
+      let gameObject = obj[Object.keys(obj)[0]];   
       let key = gameObject.gameData.gameId;
       let period = gameObject.gameData.period.current;
 
       let url = '/gamepage/' + date + '/' + key;
-      element = <div key={key} className="gameComponentWrapper hoverCard" onClick={() => this.props.history.push(url)}>
+      let element = <div key={key} className="gameComponentWrapper hoverCard" onClick={() => this.props.history.push(url)}>
                   <GameComponent game={gameObject} date={date}/>
                 </div>
       rows.push(element);
-      i++;
-    }
-
-    // this.state.games.forEach(function(obj, index) {
-    //   let gameObject = obj[Object.keys(obj)[0]];   
-    //   let key = gameObject.gameData.gameId;
-    //   let url = '/boxscore/' + date + '/' + key;
-    //   let element = <div className="mx-auto wrapper" onClick={() => this.props.history.push(url)}>
-    //                   <GameComponent key={key} game={gameObject} date={date}/>
-    //                 </div>
-    //   rows.push(element);
-    // })
+    })
     
     return (
       <div className="App">
         <div className="wrapper mx-auto">
+          {this.renderRedirect()}
           {rows}
         </div>
       </div>

@@ -10,25 +10,23 @@ import { Route, Link, BrowserRouter as Router , Switch, Redirect} from 'react-ro
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
+const date = dateToString(new Date());
 const routing = (
 
   	<Router>
-			<Route exact path="/" component={App} />
-	  		<Route path="/gamepage/:date/:gameid" component={GamePage} />
-  	</Router>
-)
-
-/*
-
-<Route exact path="/" render={() => (
+		<Switch>
+  			<Route exact path="/" render={() => (
 				<Redirect from ="/" to={{
 					pathname: '/' + date,
 					state: {date: date}
 				}} />
 			)} /> 
 
-
-*/
+			<Route exact path="/:date" component={App} />
+	  		<Route path="/gamepage/:date/:gameid" component={GamePage} />
+	  	</Switch>
+  	</Router>
+)
 
 
 ReactDOM.render(routing, document.getElementById('root'));

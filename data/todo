@@ -7,7 +7,10 @@
 -bug - http error response whenever no games are present in summer
 -bug - find date with no games, make sure component displays "NO GAME"
 -Spurs primary logo - resizing
-
+-Add start date and end date of nba season to json file
+	-allows fixed range of nba games
+	!-removes errors of preseason games, foreign teams, etc.
+-display date on top of scoreboard page
 
 
 ---------TOUCH UP---------
