@@ -7,11 +7,11 @@ app.use(express.json());
 app.use(pino);
 
 
-const getDailyGames = require('./api/getDailyGames.js')
+const getScoreBoard = require('./api/getScoreBoard.js')
 const getBoxScore = require('./api/getBoxScore.js')
 const getPlayByPlay = require('./api/getPlayByPlay.js')
 
-app.get('/api/getDailyGames', getDailyGames);
+app.get('/api/getScoreBoard', getScoreBoard);
 app.get('/api/getBoxScore', getBoxScore);
 app.get('/api/getPlayByPlay', getPlayByPlay);
 

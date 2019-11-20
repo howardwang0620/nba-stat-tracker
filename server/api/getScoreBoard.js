@@ -1,18 +1,17 @@
 const data = require('nba.js').data;
 const json = require('../../data/teams.json');
 
-
 //returns general data about all games in given date
 module.exports = function(req, res) {
 	var date = req.query.date;
-	// date = "20191114"
 	
 	data.scoreboard({date: date}).then(function(data) {
-		console.log(data)
 		//update json value
 		var numberOfGames = data['numGames'];
 
 		console.log("NUMBER OF GAMES*************: " + numberOfGames);
+		// console.log(data)
+
 	    var gamesObject = data['games'];
 
 	    // console.log(JSON.stringify(gamesObject));
@@ -21,13 +20,14 @@ module.exports = function(req, res) {
 	    let inactive = [];
 		let finished = [];
 
+		const allInactive = true;
+
 	    //Key will be game number
 	    for (var key of Object.keys(gamesObject)) {
 			var gameObject = gamesObject[key];
 			var gameID = gameObject['gameId'];
 			var statusNum = gameObject['statusNum'];
-			var game;
-			
+			var game;			
 
 			var clockTime = 0;
 
@@ -65,6 +65,7 @@ module.exports = function(req, res) {
 			    	break;
 			  	case 2:
 				    //Game is active
+				    allInactive = false;
 				    active.push(game);
 				    break;
 				case 3:
@@ -72,16 +73,17 @@ module.exports = function(req, res) {
 					finished.push(game);
 					break;
 				default:
+					allInactive = false;
 					console.log("STATUS NUMBER ERROR")
 					console.log(statusNum);
 					break;
 			}
 	    }
 
-	    //active -> yet to start -> finished
+	    //active games -> yet to start -> finished games
 	    var games = active.concat(inactive.concat(finished));
 	    // console.log(games)
-		res.send(JSON.stringify(games));
+		res.send(JSON.stringify({games : games, finished : allInactive}));
 		
 	}, function(err) {
 		console.log(err);

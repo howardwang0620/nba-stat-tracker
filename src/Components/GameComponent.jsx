@@ -14,30 +14,28 @@ Takes (game, date)
   -Date is a string in format: YYYYMMDD
 
 */
-class GameComponent extends React.Component {
+const GameComponent = props => {
 
-	render() {
-		let game = this.props.game;
-		let date = this.props.date;
-  
-		let status = game.gameData.statusNum;
-		let bgColor = game.homeTeam.primaryColor;
+	let game = props.game;
+  let date = props.date;
 
-		//MAY NEED TO UPDATE
-		let gameId = game.gameData.gameId;
-		let scoreKey = game.awayTeam.score + game.homeTeam.score;
-		// let timeKey = game.gameData.clock;
+  let status = game.gameData.statusNum;
+  let bgColor = game.homeTeam.primaryColor;
 
-		return (
-			<div className="gameComponentWrapper rounded" style={{backgroundColor: bgColor}}>
-			    <div className="container-fluid">
-			    	<TeamContainer key={gameId} gameData={game} />
-		      	<GameScoreContainer key={scoreKey} game={game} status={status} />
-		      	<GameTimeContainer game={game} status={status} />
-			    </div>
-			  </div>
-		);
-	}
+  //MAY NEED TO UPDATE
+  let gameId = game.gameData.gameId;
+  let scoreKey = game.awayTeam.score + game.homeTeam.score;
+  // let timeKey = game.gameData.clock;
+
+  return (
+    <div className="gameComponentWrapper rounded" style={{backgroundColor: bgColor}}>
+        <div className="container-fluid">
+          <TeamContainer key={gameId} gameData={game} />
+          <GameScoreContainer key={scoreKey} game={game} status={status} />
+          <GameTimeContainer game={game} status={status} />
+        </div>
+      </div>
+  );
 }
 
 //status to see if game score should be displayed

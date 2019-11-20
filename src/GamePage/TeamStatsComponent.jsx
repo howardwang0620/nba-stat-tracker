@@ -4,32 +4,20 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Image from 'react-bootstrap/Image'
 
-class TeamStatsComponent extends React.Component {
-	constructor(props) {
-		super(props);
+const TeamStatsComponent = props => {
+	let teamInfo = props.teamInfo;
+	let stats = props.stats;
 
-		this.state = {
-			teamInfo: this.props.data,
-			stats: this.props.stats
-		}
-	}
-
-	render() {
-		let teamInfo = this.state.teamInfo;
-		let stats = this.state.stats;
-
-		return (
-			<div className="teamDataWrapper boxScoreColWrapper">
-				<TeamHeader teamInfo={teamInfo} />
-				<TeamStats stats={stats} />
-			</div>
-		)
-	}
+	return (
+		<div className="teamDataWrapper boxScoreColWrapper">
+			<TeamHeader teamInfo={teamInfo} />
+			<TeamStats stats={stats} />
+		</div>
+	)
 }
 
 const TeamHeader = props => {
 	let teamInfo = props.teamInfo;
-
 	return (
 		<div className="teamDataHeaderWrapper container" style={{backgroundColor: teamInfo.primaryColor}}>
 			<Row>
@@ -46,7 +34,6 @@ const TeamHeader = props => {
 
 const TeamStats = props => {
 	let stats = props.stats;
-	console.log(stats)
 	return (
 		<div className="teamStatsWrapper container">
 			stats here

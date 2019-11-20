@@ -18,13 +18,12 @@ class GamePage extends React.Component {
 	constructor(props) {
 		super(props);
 
-		console.log(props)
 		this.state = {
 			id: this.props.match.params.gameid,
 	      	date: this.props.match.params.date,
 	      	game: undefined,
 	      	playbyplay: [],
-	      	fetched: false
+	      	finished: false
 	    }
 	}
 	
@@ -32,8 +31,9 @@ class GamePage extends React.Component {
 	//need to split into 2 diff fetches
 	//need to double fetch here, play by play and getboxscore, call in sequence
 	fetchData() {
-		this.fetchBoxScore(this.fetchPlayByPlay)
+		this.fetchBoxScore(this.fetchPlayByPlay);
 	}
+
 
 	fetchBoxScore = (_callback, state) => {
 		fetch(`/api/getBoxScore?date=${encodeURIComponent(this.state.date)}&id=${encodeURIComponent(this.state.id)}`)
@@ -46,6 +46,7 @@ class GamePage extends React.Component {
 			// });
 		});
 	}
+
 
 	fetchPlayByPlay = (game, period) => {
 		if(period === 0) {
@@ -65,22 +66,20 @@ class GamePage extends React.Component {
 				this.setState({
 					game: game,
 					period: period,
-					playbyplay: pbpArray
-
+					playbyplay: pbpArray,
+					finished: (game.gameData.statusNum === 3)
 				})
 	    	});
     	}
 	}
 
-	componentWillMount() {
-		this.fetchData();
+	componentDidUpdate() {
+		if(this.state.finished) clearInterval(this.interval)
 	}
 
 	componentDidMount() {
-		// this.fetchData();
-		this.interval = setInterval(() => {
-			this.fetchData();
-		}, 5000)
+		this.fetchData();
+		this.interval = setInterval(() => this.fetchData() , 5000)
 	}
 
 	componentWillUnmount() {

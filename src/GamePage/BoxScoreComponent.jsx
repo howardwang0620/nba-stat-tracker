@@ -19,51 +19,37 @@ should take:
 
 
 */
-class BoxScoreComponent extends React.Component {
-	constructor(props) {
-		super(props)
+const BoxScoreComponent = props => {
+	let date = props.date;
+	let teamId = props.teamId;
+	let data = props.teamData;
+	let stats = props.teamStats;
 
-		this.state = {
-			teamId: props.teamId,
-			teamStats: props.teamStats,
-			teamData: props.teamData,
-			date: props.date
-		}
+	console.log(data)
+		
+	//pass click function to use in tablecomponent <tr>
+	if(stats) {
+		return (
+			<div className="boxScoreWrapper container-fluid">
+				<Row>
+					<Col className="teamDataCol" xs={4}>
+						<TeamStatsComponent teamInfo={data} stats={stats} />
+					</Col>
+					<Col className="boxScoreCol" xs={8}>
+						<TableComponent key={teamId} teamId={teamId} stats={stats} data={data} />
+					</Col>
+				</Row>
+			</div>
+		)
+	} else {
+
+		//NEED TO FIX
+		return (
+			<div className="noGameWrapper mx-auto">
+				Game hasnt started
+			</div>
+		)
 	}
-
-	render() {
-		let date = this.state.date;
-		let teamId = this.state.teamId;
-		let data = this.state.teamData;
-		let stats = this.state.teamStats;
-
-		// console.log(data)
-			
-		//pass click function to use in tablecomponent <tr>
-		if(stats) {
-			return (
-				<div className="boxScoreWrapper container-fluid">
-					<Row>
-						<Col className="teamDataCol" xs={4}>
-							<TeamStatsComponent data={data} stats={stats}/>
-						</Col >
-						<Col className="boxScoreCol" xs={8}>
-							<TableComponent key={teamId} teamId={teamId} stats={stats} data={data}/>
-						</Col>
-					</Row>
-				</div>
-			)
-		} else {
-
-			//NEED TO FIX
-			return (
-				<div className="noGameWrapper mx-auto">
-					Game hasnt started
-				</div>
-			)
-		}
-	}
-
 }
 
 export default BoxScoreComponent;

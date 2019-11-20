@@ -7,7 +7,7 @@ import GamePage from './GamePage/GamePage.jsx'
 import { dateToString } from './functions.jsx'
 
 import * as serviceWorker from './serviceWorker';
-import { Route, Link, BrowserRouter as Router , Switch, Redirect} from 'react-router-dom';
+import { Route, BrowserRouter as Router , Switch, Redirect} from 'react-router-dom';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 

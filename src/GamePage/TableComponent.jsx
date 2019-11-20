@@ -5,27 +5,16 @@ import Table from 'react-bootstrap/Table'
 //TableComponent gets passed a prop
 //TEAM INFO: id, etc.
 //STATS
-class TableComponent extends React.Component {
-	constructor(props) {
-		super(props);
+const TableComponent = props => {
+	let teamId = props.teamId;
+	let stats = props.stats;
+	let data = props.data;
+	let finished = false;
 
-		let teamId = this.props.teamId;
-		let stats = this.props.stats;
-		let data = this.props.data;
-
-		// console.log(stats);
-
-		this.state = {
-			team: teamId,
-			data: data,
-			stats: stats
-		}
-	}
-
-	renderTableData() {
+	function renderTableData() {
 
 		//min, fg (m/a), 3pt (m/a), ft (m/a), reb, ast, to, st, blk, pts
-		return this.state.stats.activePlayers.map((player, index) => {
+		return stats.activePlayers.map((player, index) => {
 			const {min, points, assists, steals, blocks, turnovers} = player;
 			const name = player['firstName'] + ' ' + player['lastName'];
 			const rebounds = +player['defReb'] + +player['offReb'];
@@ -53,36 +42,31 @@ class TableComponent extends React.Component {
 		})
 	}
 
-	render() {
-
-		const bgColor = this.state.data.primaryColor;
-
-
-		return (
-			<div className="tableWrapper boxScoreColWrapper">
-				<table className="table table-condensed table-hover" id={this.state.teamId}>
-					<thead>
-						<tr>
-							<th style={{background: bgColor}}>PLAYER</th>
-							<th style={{background: bgColor}}>MIN</th>
-							<th style={{background: bgColor}}>FG</th>
-							<th style={{background: bgColor}}>3PT</th>
-							<th style={{background: bgColor}}>FT</th>
-							<th style={{background: bgColor}}>REB</th>
-							<th style={{background: bgColor}}>AST</th>
-							<th style={{background: bgColor}}>STL</th>
-							<th style={{background: bgColor}}>BLK</th>
-							<th style={{background: bgColor}}>TO</th>
-							<th style={{background: bgColor}}>PTS</th>
-						</tr>
-					</thead>
-					<tbody>
-						{this.renderTableData()}
-					</tbody>
-				</table>
-			</div>
-		)
-	}
+	const bgColor = data.primaryColor;
+	return (
+		<div className="tableWrapper boxScoreColWrapper">
+			<table className="table table-condensed table-hover" id={teamId}>
+				<thead>
+					<tr>
+						<th style={{background: bgColor}}>PLAYER</th>
+						<th style={{background: bgColor}}>MIN</th>
+						<th style={{background: bgColor}}>FG</th>
+						<th style={{background: bgColor}}>3PT</th>
+						<th style={{background: bgColor}}>FT</th>
+						<th style={{background: bgColor}}>REB</th>
+						<th style={{background: bgColor}}>AST</th>
+						<th style={{background: bgColor}}>STL</th>
+						<th style={{background: bgColor}}>BLK</th>
+						<th style={{background: bgColor}}>TO</th>
+						<th style={{background: bgColor}}>PTS</th>
+					</tr>
+				</thead>
+				<tbody>
+					{renderTableData()}
+				</tbody>
+			</table>
+		</div>
+	)
 }
 
 export default TableComponent;

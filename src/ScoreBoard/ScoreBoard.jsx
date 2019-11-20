@@ -45,6 +45,7 @@ class ScoreBoard extends React.Component {
     this.state = {
         date: d,
         games: [],
+        finished: false,
         redirect: false
       }
   }
@@ -57,25 +58,23 @@ class ScoreBoard extends React.Component {
     if(this.state.date === d.toDateString()) {
       this.setState({date: d})
     }
-    fetch(`/api/getDailyGames?date=${encodeURIComponent(this.state.date)}`)
+    fetch(`/api/getScoreBoard?date=${encodeURIComponent(this.state.date)}`)
     .then(res=>res.json())
     .then(result => {
       // console.log(result);
 
       this.setState({
-        games: result
+        games: result.games,
+        finished: result.finished
       });
     });
   }
-  
-  // componentWillMount() {
-  //   this.fetchGames();
-  // }
 
   componentDidMount() {
     this.fetchGames();
     document.addEventListener("keydown", this.handleKeyPress, false);
     // this.fetchGames();
+
     this.interval = setInterval(() => this.fetchGames(), 5000);
   }   
 
@@ -98,7 +97,6 @@ class ScoreBoard extends React.Component {
       let d = state.date;
       d = moment(d, "YYYYMMDD").toDate();
       d.setDate(d.getDate() - 1);
-      // console.log(d)
       return {date: dateToString(d), redirect: true}
     }, () => this.fetchGames())
   }
@@ -121,16 +119,18 @@ class ScoreBoard extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     console.log("************UPDATING************")
-    console.log("S: " + prevState.redirect)
-    console.log("P: " + prevProps.location.state.redirect)
-    if(prevProps.location.state.redirect) {
+    prevState.redirect ? console.log("S: " + prevState.redirect) : console.log("S: undefined")
+    prevProps.location.state ? console.log("P: " + prevProps.location.state.redirect) : console.log("P: undefined")
+    if(prevProps.location.state && prevProps.location.state.redirect) {
       this.setState((state) => {
         return {redirect: false}
       }, () => {
         clearInterval(this.interval)
-        this.interval = setInterval(()=>this.fetchGames(), 5000);
+        this.interval = setInterval(() => this.fetchGames(), 5000);
       })
     }
+    
+    if(this.state.finished) clearInterval(this.interval)
 
     console.log("F: " + this.state.redirect)
   }
