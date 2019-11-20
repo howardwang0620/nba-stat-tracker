@@ -11,6 +11,8 @@ module.exports = function(req, res) {
 		console.log(data)
 		//update json value
 		var numberOfGames = data['numGames'];
+
+		console.log("NUMBER OF GAMES*************: " + numberOfGames);
 	    var gamesObject = data['games'];
 
 	    // console.log(JSON.stringify(gamesObject));
@@ -30,12 +32,20 @@ module.exports = function(req, res) {
 			var clockTime = 0;
 
 			var hTeam = gameObject['hTeam'];
-			hTeam['alternateLogo'] = json[hTeam['teamId']]['AlternateLogo'];
-			hTeam['primaryColor'] = json[hTeam['teamId']]['PrimaryColor'];
 
+			//in the case that json file does not contain team
+			if(json[hTeam['teamId']]) {
+				hTeam['alternateLogo'] = json[hTeam['teamId']]['AlternateLogo'];
+				hTeam['primaryColor'] = json[hTeam['teamId']]['PrimaryColor'];
+
+			}
+			
+			//in the case that json file does not contain team
 			var vTeam = gameObject['vTeam'];
-			vTeam['alternateLogo'] = json[vTeam['teamId']]['AlternateLogo'];
-			vTeam['primaryColor'] = json[vTeam['teamId']]['PrimaryColor'];
+			if(json[vTeam['teamId']]) {
+				vTeam['alternateLogo'] = json[vTeam['teamId']]['AlternateLogo'];
+				vTeam['primaryColor'] = json[vTeam['teamId']]['PrimaryColor'];
+			}
 			
 			delete gameObject['hTeam'];
 			delete gameObject['vTeam'];

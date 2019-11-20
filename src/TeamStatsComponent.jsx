@@ -36,7 +36,7 @@ const TeamHeader = props => {
 				<Col>
 					 <Image src={teamInfo.primaryLogo} height="75"/>
 				</Col>
-				<Col>
+				<Col xs={7}>
 					<h3 className="headerNameCenter">{teamInfo.fullName}</h3>
 				</Col>
 			</Row>

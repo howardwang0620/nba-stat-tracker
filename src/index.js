@@ -3,21 +3,32 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App.jsx';
 import GamePage from './GamePage.jsx'
-// import Tmp from './tmp.jsx'
+import { dateToString } from './functions.jsx'
+
 import * as serviceWorker from './serviceWorker';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Link, BrowserRouter as Router , Switch, Redirect} from 'react-router-dom';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-
 const routing = (
-  <Router>
-    <div>
-      <Route exact path="/" component={App} />
-      <Route path="/gamepage/:date/:gameid" component={GamePage} />
-    </div>
-  </Router>
+
+  	<Router>
+			<Route exact path="/" component={App} />
+	  		<Route path="/gamepage/:date/:gameid" component={GamePage} />
+  	</Router>
 )
+
+/*
+
+<Route exact path="/" render={() => (
+				<Redirect from ="/" to={{
+					pathname: '/' + date,
+					state: {date: date}
+				}} />
+			)} /> 
+
+
+*/
 
 
 ReactDOM.render(routing, document.getElementById('root'));

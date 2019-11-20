@@ -5,7 +5,7 @@
     "TeamName": "Hawks",
     "City": "Atlanta",
     "AlternateLogo": "/images/alternatelogos/hawks.png",
-    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryLogo": "/images/primarylogos/hawks.png",
     "PrimaryColor": "#E03A3E"
   },
 
@@ -15,7 +15,7 @@
     "TeamName": "Celtics",
     "City": "Boston",
     "AlternateLogo":  "/images/alternatelogos/celtics.png",
-    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryLogo": "/images/primarylogos/celtics.png",
     "PrimaryColor": "#007A33"
   },
 
@@ -25,7 +25,7 @@
     "TeamName": "Nets",
     "City": "Brooklyn",
     "AlternateLogo":  "/images/alternatelogos/nets.png",
-    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryLogo": "/images/primarylogos/nets.png",
     "PrimaryColor": "#000000"
   },
 
@@ -35,7 +35,7 @@
     "TeamName": "Hornets",
     "City": "Charlotte",
     "AlternateLogo":  "/images/alternatelogos/hornets.png",
-    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryLogo": "/images/primarylogos/hornets.png",
     "PrimaryColor": "#1D1160"
   },
 
@@ -45,7 +45,7 @@
     "TeamName": "Bulls",
     "City": "Chicago",
     "AlternateLogo":  "/images/alternatelogos/bulls.png",
-    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryLogo": "/images/primarylogos/bulls.png",
     "PrimaryColor": "#CE1141"
   },
 
@@ -65,7 +65,7 @@
     "TeamName": "Mavericks",
     "City": "Dallas",
     "AlternateLogo": "/images/alternatelogos/mavericks.png",
-    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryLogo": "/images/primarylogos/mavericks.png",
     "PrimaryColor": "#00538C"
   },
 
@@ -75,7 +75,7 @@
     "TeamName": "Nuggets",
     "City": "Denver",
     "AlternateLogo": "/images/alternatelogos/nuggets.png",
-    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryLogo": "/images/primarylogos/nuggets.png",
     "PrimaryColor": "#0E2240"
   },
   
@@ -85,7 +85,7 @@
     "TeamName": "Pistons",
     "City": "Detroit",
     "AlternateLogo": "/images/alternatelogos/pistons.png",
-    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryLogo": "/images/primarylogos/pistons.png",
     "PrimaryColor": "#C8102E"
   },
   
@@ -95,7 +95,7 @@
     "TeamName": "Warriors",
     "City": "Golden State",
     "AlternateLogo": "/images/alternatelogos/warriors.png",
-    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryLogo": "/images/primarylogos/warriors.png",
     "PrimaryColor": "#1D428A"
   },
 
@@ -105,7 +105,7 @@
     "TeamName": "Rockets",
     "City": "Houston",
     "AlternateLogo": "/images/alternatelogos/rockets.png",
-    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryLogo": "/images/primarylogos/rockets.png",
     "PrimaryColor": "#CE1141"
   },
 
@@ -115,7 +115,7 @@
     "TeamName": "Pacers",
     "City": "Indiana",
     "AlternateLogo": "/images/alternatelogos/pacers.png",
-    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryLogo": "/images/primarylogos/pacers.png",
     "PrimaryColor": "#002D62"
   },
 
@@ -125,7 +125,7 @@
     "TeamName": "Clippers",
     "City": "Los Angeles",
     "AlternateLogo": "/images/alternatelogos/clippers.png",
-    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryLogo": "/images/primarylogos/clippers.png",
     "PrimaryColor": "#C8102E"
   },
   
@@ -135,7 +135,7 @@
     "TeamName": "Lakers",
     "City": "Los Angeles",
     "AlternateLogo": "/images/alternatelogos/lakers.png",
-    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryLogo": "/images/primarylogos/lakers.png",
     "PrimaryColor": "#552583"
   },
   
@@ -145,7 +145,7 @@
     "TeamName": "Grizzlies",
     "City": "Memphis",
     "AlternateLogo":"/images/alternatelogos/grizzlies.png",
-    "PrimaryLogo": "/images/primarylogos/",
+    "PrimaryLogo": "/images/primarylogos/grizzlies.png",
     "PrimaryColor": "#5D76A9"
   },
 
@@ -155,7 +155,7 @@
     "TeamName": "Heat",
     "City": "Miami",
     "AlternateLogo":"/images/alternatelogos/heat.png",
-    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryLogo": "/images/primarylogos/heat.png",
     "PrimaryColor": "#98002E"
   },
 
@@ -165,7 +165,7 @@
     "TeamName": "Bucks",
     "City": "Milwaukee",
     "AlternateLogo":"/images/alternatelogos/bucks.png",
-    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryLogo": "/images/primarylogos/bucks.png",
     "PrimaryColor": "#00471B"
   },
   
@@ -175,7 +175,7 @@
     "TeamName": "Timberwolves",
     "City": "Minnesota",
     "AlternateLogo": "/images/alternatelogos/timberwolves.png",
-    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryLogo": "/images/primarylogos/timberwolves.png",
     "PrimaryColor": "#0C2340"
   },
 
@@ -185,7 +185,7 @@
     "TeamName": "Pelicans",
     "City": "New Orleans",
     "AlternateLogo": "/images/alternatelogos/pelicans.png",
-    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryLogo": "/images/primarylogos/pelicans.png",
     "PrimaryColor": "#0C2340"
   },
 
@@ -205,7 +205,7 @@
     "TeamName": "Thunder",
     "City": "Oklahoma City",
     "AlternateLogo": "/images/alternatelogos/thunder.png",
-    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryLogo": "/images/primarylogos/thunder.png",
     "PrimaryColor": "#007AC1"
   },
   
@@ -215,7 +215,7 @@
     "TeamName": "Magic",
     "City": "Orlando",
     "AlternateLogo": "/images/alternatelogos/magic.png",
-    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryLogo": "/images/primarylogos/magic.png",
     "PrimaryColor": "#0077C0"
   },
 
@@ -225,7 +225,7 @@
     "TeamName": "76ers",
     "City": "Philadelphia",
     "AlternateLogo": "/images/alternatelogos/76ers.png",
-    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryLogo": "/images/primarylogos/76ers.png",
     "PrimaryColor": "#006BB6"
   },
 
@@ -235,7 +235,7 @@
     "TeamName": "Suns",
     "City": "Phoenix",
     "AlternateLogo": "/images/alternatelogos/suns.png",
-    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryLogo": "/images/primarylogos/suns.png",
     "PrimaryColor": "#1D1160"
   },
 
@@ -245,7 +245,7 @@
     "TeamName": "Trail Blazers",
     "City": "Portland",
     "AlternateLogo": "/images/alternatelogos/trailblazers.png",
-    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryLogo": "/images/primarylogos/trailblazers.png",
     "PrimaryColor": "#E03A3E"
   },
 
@@ -255,7 +255,7 @@
     "TeamName": "Kings",
     "City": "Sacramento",
     "AlternateLogo": "/images/alternatelogos/kings.png",
-    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryLogo": "/images/primarylogos/kings.png",
     "PrimaryColor": "#5A2D81"
   },
 
@@ -265,7 +265,7 @@
     "TeamName": "Spurs",
     "City": "San Antonio",
     "AlternateLogo": "/images/alternatelogos/spurs.png",
-    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryLogo": "/images/primarylogos/spurs.png",
     "PrimaryColor": "#C4CED4"
   },
 
@@ -275,7 +275,7 @@
     "TeamName": "Raptors",
     "City": "Toronto",
     "AlternateLogo": "/images/alternatelogos/raptors.png",
-    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryLogo": "/images/primarylogos/raptors.png",
     "PrimaryColor": "#CE1141"
   },
 
@@ -285,7 +285,7 @@
     "TeamName": "Jazz",
     "City": "Utah",
     "AlternateLogo": "/images/alternatelogos/jazz.png",
-    "PrimaryLogo": "/images/primarylogos/.png",
+    "PrimaryLogo": "/images/primarylogos/jazz.png",
     "PrimaryColor": "#002B5C"
   },
   
@@ -294,8 +294,128 @@
     "Abbrev": "WAS",
     "TeamName": "Wizards",
     "City": "Washington",
-    "AlternateLogo": "/images/alternatelogos/Wizards.png",
-    "PrimaryLogo": "/images/primarylogos/.png",
+    "AlternateLogo": "/images/alternatelogos/wizards.png",
+    "PrimaryLogo": "/images/primarylogos/wizards.png",
     "PrimaryColor": "#002B5C"
+  },
+
+  "21": {
+    "TeamFullName": "Team World",
+    "Abbrev": "WLD",
+    "TeamName": "World",
+    "City": "Team",
+    "AlternateLogo": "/images/alternatelogos/teamworld.png",
+    "PrimaryLogo": "/images/primarylogos/teamworld.png",
+    "PrimaryColor": "#585858"
+  },
+
+  "22": {
+    "TeamFullName": "Team USA",
+    "Abbrev": "USA",
+    "TeamName": "USA",
+    "City": "Team",
+    "AlternateLogo": "/images/alternatelogos/teamusa.png",
+    "PrimaryLogo": "/images/primarylogos/teamusa.png",
+    "PrimaryColor": "#585858"
+  },
+
+  "45": {
+    "TeamFullName": "Team China",
+    "Abbrev": "CHN",
+    "TeamName": "China",
+    "City": "Team",
+    "AlternateLogo": "/images/alternatelogos/teamchina.png",
+    "PrimaryLogo": "/images/primarylogos/teamchina.png",
+    "PrimaryColor": "#585858"
+  },
+
+  "70": {
+    "TeamFullName": "Team Croatia",
+    "Abbrev": "CRO",
+    "TeamName": "Croatia",
+    "City": "Team",
+    "AlternateLogo": "/images/alternatelogos/teamcroatia.png",
+    "PrimaryLogo": "/images/primarylogos/teamcroatia.png",
+    "PrimaryColor": "#585858"
+  },
+
+  "93": {
+    "TeamFullName": "Haifa Maccabi Haifa",
+    "Abbrev": "MAC",
+    "TeamName": "Maccabi Haifa",
+    "City": "Haifa",
+    "AlternateLogo": "/images/alternatelogos/maccabihaifa.png",
+    "PrimaryLogo": "/images/primarylogos/maccabihaifa.png",
+    "PrimaryColor": "#585858"
+  },
+
+  "12329": {
+    "TeamFullName": "Shanghai Sharks",
+    "Abbrev": "SDS",
+    "TeamName": "Sharks",
+    "City": "Shanghai",
+    "AlternateLogo": "/images/alternatelogos/sharks.png",
+    "PrimaryLogo": "/images/primarylogos/sharks.png",
+    "PrimaryColor": "#585858"
+  },
+
+  "12330": {
+    "TeamFullName": "Buenos Aires San Lorenzo",
+    "Abbrev": "SLA",
+    "TeamName": "San Lorenzo",
+    "City": "Buenos Aires",
+    "AlternateLogo": "/images/alternatelogos/sanlorenzo.png",
+    "PrimaryLogo": "/images/primarylogos/sanlorenzo.png",
+    "PrimaryColor": "#585858"
+  },
+
+  "12332": {
+    "TeamFullName": "Franca Franca",
+    "Abbrev": "FRA",
+    "TeamName": "Franca",
+    "City": "Franca",
+    "AlternateLogo": "/images/alternatelogos/franca.png",
+    "PrimaryLogo": "/images/primarylogos/franca.png",
+    "PrimaryColor": "#585858"
+  },
+
+  "15016": {
+    "TeamFullName": "Melbourne United",
+    "Abbrev": "MEL",
+    "TeamName": "United",
+    "City": "Melbourne",
+    "AlternateLogo": "/images/alternatelogos/united.png",
+    "PrimaryLogo": "/images/primarylogos/united.png",
+    "PrimaryColor": "#585858"
+  },
+
+  "15018": {
+    "TeamFullName": "Guangzhou Long-Lions",
+    "Abbrev": "GUA",
+    "TeamName": "Long-Lions",
+    "City": "Guangzhou",
+    "AlternateLogo": "/images/alternatelogos/long-lions.png",
+    "PrimaryLogo": "/images/primarylogos/long-lions.png",
+    "PrimaryColor": "#585858"
+  },
+
+  "15019": {
+    "TeamFullName": "Adelaide 36ers",
+    "Abbrev": "ADL",
+    "TeamName": "36ers",
+    "City": "Adelaide",
+    "AlternateLogo": "/images/alternatelogos/36ers.png",
+    "PrimaryLogo": "/images/primarylogos/36ers.png",
+    "PrimaryColor": "#585858"
+  },
+
+  "15020": {
+    "TeamFullName": "New Zealand Breakers",
+    "Abbrev": "NZB",
+    "TeamName": "Breakers",
+    "City": "New Zealand",
+    "AlternateLogo": "/images/alternatelogos/breakers.png",
+    "PrimaryLogo": "/images/primarylogos/breakers.png",
+    "PrimaryColor": "#585858"
   }
 }

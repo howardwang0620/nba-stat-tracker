@@ -29,17 +29,25 @@ html, body{
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+.dateWrapper {
+  position:fixed;
+  /*bottom:10px;*/
+  top: 10%;
+  right:12%;
+}
+
+/*@keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
-}
+}*/
 
 .wrapper {
-  width: 500px;
+  /*width: 500px;*/
+  width: 40%
 }
 
 .gamePageGameComponentWrapper { 

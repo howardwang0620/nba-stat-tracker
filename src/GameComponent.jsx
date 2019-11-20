@@ -107,24 +107,23 @@ const GameTimeContainer = props => {
   time = hour + ":" + minute + " " + ampm + " " + zone;
 
   if(status === 1) {
-    //FILL THIS IN
-    element = (<Col> <h5>{time}</h5> </Col>)
+    element = (<Col xs={6}> <h5>{time}</h5> </Col>)
   } else if(status === 2) {
     if(isHalf) {
-      element = (<Col>  
+      element = (<Col xs={6}>  
                   <h5>Halftime</h5>
                 </Col>)
     } else if(isEndOfPeriod) {
-      element = (<Col>  
+      element = (<Col xs={6}>  
                   <h5>End of {game.gameData.period.current}Q</h5>
                 </Col>)
     } else {
-      element = (<Col>  
+      element = (<Col xs={6}>  
                   <h5>{game.gameData.period.current}Q - {game.gameData.clock}</h5>
                 </Col>)
     }
   } else if(status === 3) {
-    element = (<Col> <h5>Final</h5> </Col>)
+    element = (<Col xs={6}> <h5>Final</h5> </Col>)
   } else {
 
   }

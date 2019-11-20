@@ -11,7 +11,6 @@ import { dateToString } from './functions.jsx'
 // import Image from "react-bootstrap/Image"; 
 import Spinner from "react-bootstrap/Spinner";
 
-import moment from "moment-timezone";
 import update from 'immutability-helper';
 
 const NUM_OF_PLAYS = 15;
@@ -19,6 +18,8 @@ const NUM_OF_PLAYS = 15;
 class GamePage extends React.Component {
 	constructor(props) {
 		super(props);
+
+		console.log(props)
 		this.state = {
 			id: this.props.match.params.gameid,
 	      	date: this.props.match.params.date,
