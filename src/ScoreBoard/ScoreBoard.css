@@ -1,0 +1,8 @@
+/***********************SCOREBOARD COMPONENT***********************/
+.scoreBoardWrapper {
+  width: 40%
+}
+
+.hoverCard:hover {
+  opacity: .75;
+}

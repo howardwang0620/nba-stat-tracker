@@ -1,16 +1,13 @@
 ---------TO DO---------
 -toggle date with button on bottom left of screen
 	-stay in position as user scrolls
--unique url for homepage -> include date value (MED)
--optimize live updating (BIG) ???
 -cache previous periods (quarters) in gamepage component
--bug - http error response whenever no games are present in summer
 -bug - find date with no games, make sure component displays "NO GAME"
--Spurs primary logo - resizing
 -Add start date and end date of nba season to json file
 	-allows fixed range of nba games
 	!-removes errors of preseason games, foreign teams, etc.
 -display date on top of scoreboard page
+-injured player box score
 
 
 ---------TOUCH UP---------
@@ -20,6 +17,8 @@
 -alter sorting???
 	-show most active games on top -> how to sort active vs halftime games?
 	-halftime games being placed above active games
+-optimize live updating (MED) ???
+	-dont fetch finished games
 
 
 ---------FINISHED---------
@@ -30,6 +29,8 @@
 	-where to place new date(), or just in general, where and when to update new date()
 -split server file into mulitple files (SMALL)
 -arrow keys for prev/next day (MED)
+-unique url for homepage -> include date value (MED)
+
 
 
 

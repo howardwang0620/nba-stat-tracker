@@ -59,7 +59,7 @@ class TableComponent extends React.Component {
 
 
 		return (
-			<div className="tableWrapper">
+			<div className="tableWrapper boxScoreColWrapper">
 				<table className="table table-condensed table-hover" id={this.state.teamId}>
 					<thead>
 						<tr>

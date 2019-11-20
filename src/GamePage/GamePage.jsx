@@ -1,17 +1,16 @@
 import React from 'react';
-import './App.css';
-import GameComponent from './GameComponent.jsx'
+
+import './GamePage.css'
+import GameComponent from '../Components/GameComponent.jsx'
 import GamePageLowerComponent from './GamePageLowerComponent.jsx'
 import PlayByPlayComponent from './PlayByPlayComponent.jsx'
-import { dateToString } from './functions.jsx'
+import { dateToString } from '../functions.jsx'
 
 // import Container from "react-bootstrap/Container"; 
 // import Row from "react-bootstrap/Row";
 // import Col from "react-bootstrap/Col"; 
 // import Image from "react-bootstrap/Image"; 
 import Spinner from "react-bootstrap/Spinner";
-
-import update from 'immutability-helper';
 
 const NUM_OF_PLAYS = 15;
 
@@ -109,7 +108,7 @@ class GamePage extends React.Component {
 
 			return (
 					<div className="App">
-						<div className="GamePage">
+						<div className="gamePage">
 							<div className="gamePageGameComponentWrapper mx-auto">
 								<GameComponent key={key} game={game} date={date}/>
 							</div>

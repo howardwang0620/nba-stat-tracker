@@ -7,21 +7,6 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 
-
-/*
-	id : teamId of team
-	date : date of game (YYYYMMDD)
-	game : game object of game in structure -> 
-			{
-				gameData,
-				homeTeam,
-				awayTeam,
-				stats
-			}
-
-*/
-
-
 /*
 
 display two things -> player component | box score component
@@ -59,10 +44,10 @@ class BoxScoreComponent extends React.Component {
 			return (
 				<div className="boxScoreWrapper container-fluid">
 					<Row>
-						<Col xs={4}>
+						<Col className="teamDataCol" xs={4}>
 							<TeamStatsComponent data={data} stats={stats}/>
 						</Col >
-						<Col className="tableCol" xs={8}>
+						<Col className="boxScoreCol" xs={8}>
 							<TableComponent key={teamId} teamId={teamId} stats={stats} data={data}/>
 						</Col>
 					</Row>
@@ -72,7 +57,7 @@ class BoxScoreComponent extends React.Component {
 
 			//NEED TO FIX
 			return (
-				<div className="wrapper mx-auto">
+				<div className="noGameWrapper mx-auto">
 					Game hasnt started
 				</div>
 			)

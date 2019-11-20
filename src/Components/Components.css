@@ -1,0 +1,13 @@
+/***********************DATE COMPONENT***********************/
+.dateWrapper {
+  position:fixed;
+  /*bottom:10px;*/
+  top: 10%;
+  right:12%;
+}
+
+/***********************GAME COMPONENT***********************/
+.gameComponentWrapper {
+  margin: 10px;
+  color: white !important;
+}

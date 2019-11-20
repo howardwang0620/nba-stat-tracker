@@ -19,7 +19,7 @@ class TeamStatsComponent extends React.Component {
 		let stats = this.state.stats;
 
 		return (
-			<div className="teamDataWrapper">
+			<div className="teamDataWrapper boxScoreColWrapper">
 				<TeamHeader teamInfo={teamInfo} />
 				<TeamStats stats={stats} />
 			</div>

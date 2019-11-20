@@ -1,0 +1,93 @@
+/***********************GAME PAGE COMPONENT***********************/
+
+.gamePageGameComponentWrapper { 
+  width: 95%;
+}
+
+/* BOX SCORE COMPONENTS FOR GAMEPAGE */
+.gamePageLowerComponents {
+  width: 95%;
+  border-style: solid;
+  border-width: 5px;
+}
+
+.spinnerIcon {
+  position:fixed;
+  top:50%;
+  left:50%
+}
+
+/***********************BOX SCORE COMPONENT***********************/
+
+.boxScoreWrapper {
+  margin-right: 2.5%;
+  padding: 0 !important;
+  /*float: right;*/
+}
+
+.noGameWrapper {
+	width: 40%;
+}
+
+.boxScoreColWrapper {
+  margin: 10px;
+}
+
+.teamDataCol {
+  padding-right: 5px !important;
+}
+
+.boxScoreCol {
+  padding-left: 5px !important;
+}
+
+
+/***********************TABLE COMPONENT***********************/
+.tableWrapper {
+  /*width: 750px;*/
+}
+
+.tableWrapper table {
+  background-color: #FFFFFF;
+}
+
+.table { 
+  overflow-y: auto;
+  height: 100px; 
+}
+
+.table thead th {
+  color: white;
+  position: sticky; 
+  top: 0;
+}
+
+#nameTD {
+  text-align: left;
+  min-width: 150px;
+}
+
+
+/***********************TEAM STATS COMPONENT***********************/
+.teamDataHeaderWrapper {
+  padding: 10px;
+  margin: 10px;
+}
+
+.headerNameCenter {
+  color: white;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+}
+
+
+
+
+
+
+
+
+

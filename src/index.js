@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './App.css'
 import './index.css';
-import App from './App.jsx';
-import GamePage from './GamePage.jsx'
+import ScoreBoard from './ScoreBoard/ScoreBoard.jsx';
+import GamePage from './GamePage/GamePage.jsx'
 import { dateToString } from './functions.jsx'
 
 import * as serviceWorker from './serviceWorker';
@@ -22,7 +23,7 @@ const routing = (
 				}} />
 			)} /> 
 
-			<Route exact path="/:date" component={App} />
+			<Route exact path="/:date" component={ScoreBoard} />
 	  		<Route path="/gamepage/:date/:gameid" component={GamePage} />
 	  	</Switch>
   	</Router>

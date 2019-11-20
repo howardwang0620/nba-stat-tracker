@@ -1,11 +1,10 @@
 import React from 'react';
 import {Redirect, withRouter} from 'react-router-dom';
 
-// import logo from './logo.svg';
-import './App.css';
-import GameComponent from './GameComponent.jsx'
-import DateComponent from './DateComponent.jsx'
-import { dateToString } from './functions.jsx'
+import './ScoreBoard.css';
+import GameComponent from '../Components/GameComponent.jsx'
+import DateComponent from '../Components/DateComponent.jsx'
+import { dateToString } from '../functions.jsx'
 
 import Container from "react-bootstrap/Container"; 
 import Row from "react-bootstrap/Row";
@@ -32,7 +31,7 @@ import moment from 'moment'
 
     DATE element will always be date element
 */
-class App extends React.Component {
+class ScoreBoard extends React.Component {
   constructor(props) {
     super(props);
     
@@ -120,21 +119,21 @@ class App extends React.Component {
     }
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   console.log("************UPDATING************")
-  //   console.log("S: " + prevState.redirect)
-  //   console.log("P: " + prevProps.location.state.redirect)
-  //   if(prevProps.location.state.redirect) {
-  //     this.setState((state) => {
-  //       return {redirect: false}
-  //     }, () => {
-  //       clearInterval(this.interval)
-  //       this.interval = setInterval(()=>this.fetchGames(), 5000);
-  //     })
-  //   }
+  componentDidUpdate(prevProps, prevState) {
+    console.log("************UPDATING************")
+    console.log("S: " + prevState.redirect)
+    console.log("P: " + prevProps.location.state.redirect)
+    if(prevProps.location.state.redirect) {
+      this.setState((state) => {
+        return {redirect: false}
+      }, () => {
+        clearInterval(this.interval)
+        this.interval = setInterval(()=>this.fetchGames(), 5000);
+      })
+    }
 
-  //   console.log("F: " + this.state.redirect)
-  // }
+    console.log("F: " + this.state.redirect)
+  }
 
   renderRedirect = () => {
     console.log("RR: " + this.state.redirect)
@@ -160,7 +159,7 @@ class App extends React.Component {
       let period = gameObject.gameData.period.current;
 
       let url = '/gamepage/' + date + '/' + key;
-      let element = <div key={key} className="gameComponentWrapper hoverCard" onClick={() => this.props.history.push(url)}>
+      let element = <div key={key} className="hoverCard" onClick={() => this.props.history.push(url)}>
                   <GameComponent game={gameObject} date={date}/>
                 </div>
       rows.push(element);
@@ -168,7 +167,7 @@ class App extends React.Component {
     
     return (
       <div className="App">
-        <div className="wrapper mx-auto">
+        <div className="scoreBoardWrapper mx-auto">
           {this.renderRedirect()}
           {rows}
         </div>
@@ -177,4 +176,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default ScoreBoard;
