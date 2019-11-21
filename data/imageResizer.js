@@ -1,10 +1,10 @@
-const read = "../public/images/primarylogosTMP/"
+const read = "../../localdata/alternatelogosTMP/"
 // const filename="pelicans.png"
-const write = "../public/images/primarylogos/"
+const write = "../public/images/alternatelogos/"
 const fs = require('fs')
 const sharp = require('sharp');
 
-const HEIGHT_VALUE = 150;
+const HEIGHT_VALUE = 100;
 
 fs.readdirSync(read).forEach(filename => {
 	fs.readFile(read + filename, function(err, content) {

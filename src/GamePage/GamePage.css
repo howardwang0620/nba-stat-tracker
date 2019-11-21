@@ -20,6 +20,7 @@
 /***********************BOX SCORE COMPONENT***********************/
 
 .boxScoreWrapper {
+  margin-top: 10px;
   margin-right: 2.5%;
   padding: 0 !important;
   /*float: right;*/
@@ -30,10 +31,11 @@
 }
 
 .boxScoreColWrapper {
-  margin: 10px;
+  /*margin: 10px;*/
 }
 
 .teamDataCol {
+  /*background-color: white;*/
   padding-right: 5px !important;
 }
 
@@ -71,7 +73,15 @@
 /***********************TEAM STATS COMPONENT***********************/
 .teamDataHeaderWrapper {
   padding: 10px;
-  margin: 10px;
+  text-align: center;
+  /*margin: 10px;*/
+}
+
+.teamHeaderLabel {
+  display: inline-block !important;
+  color: white;
+  font-weight: bold;
+  font-size: large;
 }
 
 .headerNameCenter {
@@ -82,8 +92,6 @@
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
 }
-
-
 
 
 

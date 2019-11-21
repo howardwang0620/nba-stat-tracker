@@ -1,55 +1,73 @@
 import React from 'react';
-import TableComponent from './TableComponent.jsx'
-import TeamStatsComponent from './TeamStatsComponent.jsx'
-import BoxScorePlayerComponent from './BoxScorePlayerComponent.jsx'
 
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import Table from 'react-bootstrap/Table'
 
-
-/*
-
-display two things -> player component | box score component
-needs only team data for box score component part
-
-should take:
-	-team id
-	-team stats
-	-team data
-
-
-*/
+//TableComponent gets passed a prop
+//TEAM INFO: id, etc.
+//STATS
 const BoxScoreComponent = props => {
-	let date = props.date;
-	let teamId = props.teamId;
-	let data = props.teamData;
-	let stats = props.teamStats;
+	const teamId = props.teamId;
+	const stats = props.stats;
+	const data = props.data;
+	const finished = false;
 
-	console.log(data)
-		
-	//pass click function to use in tablecomponent <tr>
-	if(stats) {
-		return (
-			<div className="boxScoreWrapper container-fluid">
-				<Row>
-					<Col className="teamDataCol" xs={4}>
-						<TeamStatsComponent teamInfo={data} stats={stats} />
-					</Col>
-					<Col className="boxScoreCol" xs={8}>
-						<TableComponent key={teamId} teamId={teamId} stats={stats} data={data} />
-					</Col>
-				</Row>
-			</div>
-		)
-	} else {
+	function renderTableData() {
 
-		//NEED TO FIX
-		return (
-			<div className="noGameWrapper mx-auto">
-				Game hasnt started
-			</div>
-		)
+		//min, fg (m/a), 3pt (m/a), ft (m/a), reb, ast, to, st, blk, pts
+		return stats.activePlayers.map((player, index) => {
+			const {min, points, assists, steals, blocks, turnovers} = player;
+			const name = player['firstName'] + ' ' + player['lastName'];
+			const rebounds = +player['defReb'] + +player['offReb'];
+			const fg = player['fgm'] + "/" + player['fga'];
+			const tpg = player['tpm'] + "/" + player['tpa'];
+			const ft = player['ftm'] + "/" + player['fta'];
+
+			const isOnCourt = player['isOnCourt'];
+			
+			return (
+				<tr key={player.personId} style={ index === 4 ? {borderBottom: '2pt solid black'} : {}}>
+					<td id='nameTD' style={ isOnCourt ? { fontWeight: 'bold' } : { fontWeight: 'normal' } }>{name}</td>
+					<td>{min}</td>
+					<td title={player['fgp'] + '%'}>{fg}</td>
+					<td title={player['tpp'] + '%'}>{tpg}</td>
+					<td title={player['ftp'] + '%'}>{ft}</td>
+					<td>{rebounds}</td>
+					<td>{assists}</td>
+					<td>{steals}</td>
+					<td>{blocks}</td>
+					<td>{turnovers}</td>
+					<td>{points}</td>
+				</tr>
+			)
+		})
 	}
+
+	const bgColor = data.primaryColor;
+	return (
+		<div className="tableWrapper boxScoreColWrapper">
+			<Table hover id={teamId}>
+				<thead>
+					<tr>
+						<th style={{background: bgColor, borderTop: "none"}}>PLAYER</th>
+						<th style={{background: bgColor, borderTop: "none"}}>MIN</th>
+						<th style={{background: bgColor, borderTop: "none"}}>FG</th>
+						<th style={{background: bgColor, borderTop: "none"}}>3PT</th>
+						<th style={{background: bgColor, borderTop: "none"}}>FT</th>
+						<th style={{background: bgColor, borderTop: "none"}}>REB</th>
+						<th style={{background: bgColor, borderTop: "none"}}>AST</th>
+						<th style={{background: bgColor, borderTop: "none"}}>STL</th>
+						<th style={{background: bgColor, borderTop: "none"}}>BLK</th>
+						<th style={{background: bgColor, borderTop: "none"}}>TO</th>
+						<th style={{background: bgColor, borderTop: "none"}}>PTS</th>
+					</tr>
+				</thead>
+				<tbody>
+					{renderTableData()}
+				</tbody>
+			</Table>
+		</div>
+	)
 }
 
 export default BoxScoreComponent;
+

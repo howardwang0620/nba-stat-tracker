@@ -16,9 +16,9 @@ Event Types:
 	18: Instant Replay
 */
 module.exports = function(req, res) {
-	var date = req.query.date;
-	var gameId = req.query.id;
-	var period = req.query.period;
+	const date = req.query.date;
+	const gameId = req.query.id;
+	const period = req.query.period;
 
 	data.pbp({date: date, gameId: gameId, period: period}).then((data) => {
 		// console.log(JSON.stringify(data));

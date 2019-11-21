@@ -5,6 +5,7 @@ import GameComponent from '../Components/GameComponent.jsx'
 import GamePageLowerComponent from './GamePageLowerComponent.jsx'
 import PlayByPlayComponent from './PlayByPlayComponent.jsx'
 import { dateToString } from '../functions.jsx'
+import { TeamContainerEnum } from '../enums.js'
 
 // import Container from "react-bootstrap/Container"; 
 // import Row from "react-bootstrap/Row";
@@ -23,7 +24,7 @@ class GamePage extends React.Component {
 	      	date: this.props.match.params.date,
 	      	game: undefined,
 	      	playbyplay: [],
-	      	finished: false
+	      	inactive: false
 	    }
 	}
 	
@@ -39,7 +40,7 @@ class GamePage extends React.Component {
 		fetch(`/api/getBoxScore?date=${encodeURIComponent(this.state.date)}&id=${encodeURIComponent(this.state.id)}`)
 	    .then(res=>res.json())
 	    .then(result => {
-	    	_callback(result, result.gameData.period.current)
+	    	_callback(result, result.gameData.period.current, result.gameData.statusNum);
 			// this.setState({
 			// 	game: result,
 			// 	period: result.gameData.period.current
@@ -48,11 +49,12 @@ class GamePage extends React.Component {
 	}
 
 
-	fetchPlayByPlay = (game, period) => {
+	fetchPlayByPlay = (game, period, statusNum) => {
 		if(period === 0) {
 			this.setState({
 				game: game,
-				period: period
+				period: period,
+				inactive: (statusNum === 3 || statusNum === 1)
 			});
     	} else {
     		fetch(`/api/getPlayByPlay?date=${encodeURIComponent(this.state.date)}
@@ -60,21 +62,24 @@ class GamePage extends React.Component {
 					&period=${encodeURIComponent(period)}`)
 			.then(res=>res.json())
 	    	.then(result => {
-
+		
 				let pbpArray = [...this.state.playbyplay];
 				pbpArray[period-1] = result;
+
 				this.setState({
 					game: game,
 					period: period,
 					playbyplay: pbpArray,
-					finished: (game.gameData.statusNum === 3)
+					inactive: (game.gameData.statusNum === 3 || game.gameData.statusNum === 1)
 				})
+	    	}).catch(err => {
+				console.log(err)
 	    	});
     	}
 	}
 
 	componentDidUpdate() {
-		if(this.state.finished) clearInterval(this.interval)
+		if(this.state.inactive) clearInterval(this.interval)
 	}
 
 	componentDidMount() {
@@ -88,17 +93,15 @@ class GamePage extends React.Component {
 
 
 	render() {
-		let key = this.state.id;
-		let date = this.state.date;
-		let game = this.state.game;
-		let playbyplay = this.state.playbyplay;
+		const key = this.state.id;
+		const date = this.state.date;
+		const game = this.state.game;
+		const playbyplay = this.state.playbyplay;
 
-		console.log(game)
-		
 		if(game) {
 			//should check if stats exists here
 			//make new component called gamepagelowercomponents
-			let stats = game.stats;
+			const stats = game.stats;
 			let element;
 			if(stats) {
 				element = <GamePageLowerComponent key={key} game={game} date={date}/>
@@ -109,7 +112,7 @@ class GamePage extends React.Component {
 					<div className="App">
 						<div className="gamePage">
 							<div className="gamePageGameComponentWrapper mx-auto">
-								<GameComponent key={key} game={game} date={date}/>
+								<GameComponent key={key} game={game} date={date} type={TeamContainerEnum.ADVANCED_GAME}/>
 							</div>
 
 							{element}

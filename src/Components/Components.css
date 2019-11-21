@@ -10,4 +10,58 @@
 .gameComponentWrapper {
   margin: 10px;
   color: white !important;
+  padding: 10px;
+}
+
+
+/***********************ADVANCED GAME COMPONENT***********************/
+.advancedComponentWrapper {
+  margin-top: 10px;
+  /*padding: 10px;*/
+}
+
+.teamHeaderRow {
+  height: 100%;
+}
+
+.teamColName {
+  text-align:center;
+  width: 100%;
+  padding: 10px;
+  color: white;
+  margin: 0 auto;
+}
+
+.teamColLogo {
+  margin: 0 auto;
+}
+
+.teamScoreCol {
+  color: white;
+  margin: auto;
+}
+
+.scoreSummaryWrapper {
+  color: white;
+}
+
+#scoreSummaryTable {
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+/***********************SCORE SUMMARY COMPONENT***********************/
+.scoreSummaryColWrapper {
+  padding: 0px;
+  background-color: #343a40;
+}
+
+.scoreSummaryTime {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.tablePeriodHeader {
+  font-size: small;
 }

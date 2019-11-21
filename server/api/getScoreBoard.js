@@ -16,17 +16,17 @@ module.exports = function(req, res) {
 
 	    // console.log(JSON.stringify(gamesObject));
 
-	    let active = [];
-	    let inactive = [];
-		let finished = [];
+	    var active = [];
+	    var inactive = [];
+		var finished = [];
 
-		const allInactive = true;
+		var allInactive = true;
 
 	    //Key will be game number
 	    for (var key of Object.keys(gamesObject)) {
 			var gameObject = gamesObject[key];
-			var gameID = gameObject['gameId'];
-			var statusNum = gameObject['statusNum'];
+			const gameID = gameObject['gameId'];
+			const statusNum = gameObject['statusNum'];
 			var game;			
 
 			var clockTime = 0;
@@ -81,7 +81,7 @@ module.exports = function(req, res) {
 	    }
 
 	    //active games -> yet to start -> finished games
-	    var games = active.concat(inactive.concat(finished));
+	    const games = active.concat(inactive.concat(finished));
 	    // console.log(games)
 		res.send(JSON.stringify({games : games, finished : allInactive}));
 		

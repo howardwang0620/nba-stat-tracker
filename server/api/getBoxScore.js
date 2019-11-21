@@ -4,8 +4,8 @@ const json = require('../../data/teams.json');
 //provides box score data for gameId game
 module.exports = function(req, res) {
 
-	var date = req.query.date;
-	var gameId = req.query.id;
+	const date = req.query.date;
+	const gameId = req.query.id;
 	
 	data.boxscore({date: date, gameId: gameId}).then(function(data) {
 		// console.log(data)
@@ -47,11 +47,11 @@ module.exports = function(req, res) {
 			stats[hTeamId]['activePlayers'] = [];
 			stats[vTeamId]['activePlayers'] = [];
 
-			var activePlayers = stats['activePlayers'];
+			const activePlayers = stats['activePlayers'];
 			
 			// console.log(activePlayers);
 			Object.keys(activePlayers).map(function(key, index) {
-				var playerObj = activePlayers[key];
+				const playerObj = activePlayers[key];
 				if(playerObj['teamId'] === hTeamId) {
 					stats[hTeamId]['activePlayers'].push(playerObj);
 				} else if(playerObj['teamId'] === vTeamId) {
@@ -62,7 +62,7 @@ module.exports = function(req, res) {
 			delete stats['activePlayers'];
 		}
 				
-		var boxScoreObject = {
+		const boxScoreObject = {
 			gameData: data['basicGameData'],
 			homeTeam: hTeam,
 			awayTeam: vTeam,

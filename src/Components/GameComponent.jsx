@@ -4,6 +4,9 @@ import TeamContainer from './TeamContainer.jsx'
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col"; 
 
+import { TeamContainerEnum } from '../enums.js'
+import AdvancedTeamContainer from './AdvancedTeamContainer.jsx'
+
 import moment from "moment-timezone";
 
 
@@ -12,43 +15,53 @@ import moment from "moment-timezone";
 Takes (game, date) 
   -Game is an object with children: gameData, awayTeam, homeTeam
   -Date is a string in format: YYYYMMDD
-
+  -Type defines type of GameComponent used (defined in enums.js)
 */
 const GameComponent = props => {
 
-	let game = props.game;
-  let date = props.date;
+	const game = props.game;
+  const date = props.date;
+  const type = props.type;
 
-  let status = game.gameData.statusNum;
-  let bgColor = game.homeTeam.primaryColor;
+  const status = game.gameData.statusNum;
+  const bgColor = game.homeTeam.primaryColor;
 
-  //MAY NEED TO UPDATE
-  let gameId = game.gameData.gameId;
-  let scoreKey = game.awayTeam.score + game.homeTeam.score;
+  const gameId = game.gameData.gameId;
+  const scoreKey = game.awayTeam.score + game.homeTeam.score;
+  const time = getGameTimeValue(game, status);
   // let timeKey = game.gameData.clock;
-
-  return (
-    <div className="gameComponentWrapper rounded" style={{backgroundColor: bgColor}}>
+  let element;
+  if(type === TeamContainerEnum.GAME) {
+    return (
+      <div className="gameComponentWrapper rounded" style={{backgroundColor: bgColor}}>
         <div className="container-fluid">
-          <TeamContainer key={gameId} gameData={game} />
-          <GameScoreContainer key={scoreKey} game={game} status={status} />
-          <GameTimeContainer game={game} status={status} />
+          <TeamContainer key={gameId} gameData={game} time={time}/>
+          <GameScoreContainer key={scoreKey} game={game} status={status}/>
+          <GameTimeContainer time={time} />
         </div>
       </div>
-  );
-}
+    )
+  } else if(type === TeamContainerEnum.ADVANCED_GAME) {
+    return (
+      <div className="advancedComponentWrapper rounded">
+        <AdvancedTeamContainer gameData={game} time={time} />
+      </div>
 
-//status to see if game score should be displayed
+    )
+  }
+}
 /*
-1 -> "-"
-2 -> "0 - 0"
-3 -> "0 - 0"
+<div className="advancedComponentWrapper rounded" style={{backgroundColor: bgColor}}>
+        <AdvancedTeamContainer gameData={game} time={time} />
+      </div>
 */
+
+//displays score of game including quarter, shows time if game inactive
 const GameScoreContainer = props => {
-  let game = props.game;
-  let status = props.status;
-  let gameActivated = game.gameData.isGameActivated;
-  let element;
+  const game = props.game;
+  const status = props.status;
+  const gameActivated = game.gameData.isGameActivated;
+  var element;
 
   if(status === 2 || status === 3) {
     element = (<Row className="game-score-container"><Col>
@@ -83,20 +96,20 @@ const GameScoreContainer = props => {
 2 -> display: 1Q - 12:00
 3 -> display: FINAL
 */
-const GameTimeContainer = props => {
-  let game = props.game;
-  let status = props.status;
-  let isHalf = game.gameData.period.isHalftime;
-  let isEndOfPeriod = game.gameData.period.isEndOfPeriod;
-  let element;
+function getGameTimeValue(_game, _status) {
+  const game = _game;
+  const status = _status;
+
+  const isHalf = game.gameData.period.isHalftime;
+  const isEndOfPeriod = game.gameData.period.isEndOfPeriod;
   
-  let time = new Date(game.gameData.startTimeUTC);
-  let hour = time.getHours();
-  let ampm = hour >= 12 ? 'PM' : 'AM';
+  var time = new Date(game.gameData.startTimeUTC);
+  var hour = time.getHours();
+  const ampm = hour >= 12 ? 'PM' : 'AM';
 
   hour = '' + ((hour + 11) % 12 + 1);
 
-  let minute = '' + time.getMinutes();
+  var minute = '' + time.getMinutes();
   if (minute.length < 2) 
         minute = '0' + minute;
 
@@ -104,35 +117,43 @@ const GameTimeContainer = props => {
 
   time = hour + ":" + minute + " " + ampm + " " + zone;
 
+  var element;
   if(status === 1) {
-    element = (<Col xs={6}> <h5>{time}</h5> </Col>)
+    element = time;
   } else if(status === 2) {
     if(isHalf) {
-      element = (<Col xs={6}>  
-                  <h5>Halftime</h5>
-                </Col>)
+      element = "Halftime";
     } else if(isEndOfPeriod) {
-      element = (<Col xs={6}>  
-                  <h5>End of {game.gameData.period.current}Q</h5>
-                </Col>)
+      element = "End of " + game.gameData.period.current + "Q";
     } else {
-      element = (<Col xs={6}>  
-                  <h5>{game.gameData.period.current}Q - {game.gameData.clock}</h5>
-                </Col>)
+      element = game.gameData.period.current + "Q - " + game.gameData.clock;
     }
   } else if(status === 3) {
-    element = (<Col xs={6}> <h5>Final</h5> </Col>)
+    element = "Final"
   } else {
 
   }
 
+  return element;
+}
+
+//pass in time value to display
+const GameTimeContainer = props => {
+  const time = props.time;
+
   return (
     <Row className="game-time-container">
       <Col></Col>
-      {element}
+      <Col xs={6}>  
+        <span style={{fontSize : props.textSize}}>
+          {time}
+        </span>
+      </Col>  
       <Col></Col>
     </Row>
   )
 }
 
 export default GameComponent;
+export { GameScoreContainer, GameTimeContainer};
+

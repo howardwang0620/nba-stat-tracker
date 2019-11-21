@@ -1,10 +1,12 @@
 import React from 'react';
-import {Redirect, withRouter} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import './ScoreBoard.css';
+
 import GameComponent from '../Components/GameComponent.jsx'
 import DateComponent from '../Components/DateComponent.jsx'
 import { dateToString } from '../functions.jsx'
+import { TeamContainerEnum } from '../enums.js'
 
 import Container from "react-bootstrap/Container"; 
 import Row from "react-bootstrap/Row";
@@ -35,7 +37,7 @@ class ScoreBoard extends React.Component {
   constructor(props) {
     super(props);
     
-    let d = dateToString(new Date());
+    var d = dateToString(new Date());
     // d = new Date('November 18 2019')
     // d.setTime(d.getTime() - 21*60*1000);
     // let d;
@@ -53,8 +55,7 @@ class ScoreBoard extends React.Component {
 
   //time sensitive
   fetchGames() {
-    // var url = "/api/getDailyGames"
-    let d = new Date();
+    const d = new Date();
     if(this.state.date === d.toDateString()) {
       this.setState({date: d})
     }
@@ -85,7 +86,7 @@ class ScoreBoard extends React.Component {
 
   incrementDate() {
     this.setState((state) => {
-      let d = state.date;
+      var d = state.date;
       d = moment(d, "YYYYMMDD").toDate();
       d.setDate(d.getDate() + 1);
       return {date: dateToString(d), redirect: true}
@@ -94,7 +95,7 @@ class ScoreBoard extends React.Component {
 
   decrementDate() {
     this.setState((state) => {
-      let d = state.date;
+      var d = state.date;
       d = moment(d, "YYYYMMDD").toDate();
       d.setDate(d.getDate() - 1);
       return {date: dateToString(d), redirect: true}
@@ -150,17 +151,16 @@ class ScoreBoard extends React.Component {
   render() {
     const rows = [];
     
-    let date = this.state.date;
+    const date = this.state.date;
     console.log("************RENDERING************")
     console.log("R: " + this.state.redirect)
     this.state.games.forEach((obj, index) => {
-      let gameObject = obj[Object.keys(obj)[0]];   
-      let key = gameObject.gameData.gameId;
-      let period = gameObject.gameData.period.current;
-
-      let url = '/gamepage/' + date + '/' + key;
-      let element = <div key={key} className="hoverCard" onClick={() => this.props.history.push(url)}>
-                  <GameComponent game={gameObject} date={date}/>
+      const gameObject = obj[Object.keys(obj)[0]];   
+      const key = gameObject.gameData.gameId;
+      
+      const url = '/gamepage/' + date + '/' + key;
+      const element = <div key={key} className="hoverCard" onClick={() => this.props.history.push(url)}>
+                  <GameComponent game={gameObject} date={date} type={TeamContainerEnum.GAME}/>
                 </div>
       rows.push(element);
     })

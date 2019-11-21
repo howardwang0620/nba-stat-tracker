@@ -13,19 +13,18 @@ class PlayByPlayComponent extends React.Component {
 	}
 
 	fetchPlays(numOfPlays, period, pbp) {
-		let plays = pbp[period - 1].plays;
+		var plays = pbp[period - 1].plays;
 		console.log(plays)
 		return plays.slice(plays.length - numOfPlays, plays.length).reverse();
 	}
 
 	render() {
-		let pbp = this.fetchPlays(this.state.numOfPlays, this.state.period, this.state.playbyplay);
+		var pbp = this.fetchPlays(this.state.numOfPlays, this.state.period, this.state.playbyplay);
 		const rows = [];
 
 		pbp.map(function(val, i) {
-			let desc = val.formatted.description;
-
-			rows.push(<div key={desc}>{val.description}</div>)
+			var desc = val.formatted.description;
+			rows.push(<div key={desc}>{val.description}</div>);
 		});
 
 		return(
