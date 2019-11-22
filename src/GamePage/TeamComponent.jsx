@@ -8,8 +8,6 @@ const TeamComponent = props => {
 	const teamInfo = props.teamInfo;
 	const stats = props.stats;
 
-	console.log(stats)
-
 	return (
 		<div className="teamDataWrapper boxScoreColWrapper">
 			<TeamHeader teamInfo={teamInfo} />
@@ -30,25 +28,43 @@ const TeamHeader = props => {
 	)
 }
 
+//row component
 const TeamSummary = props => {
 	const teamInfo = props.teamInfo;
 	const stats = props.stats;
-	console.log(teamInfo)
-	console.log(stats)
+
 	return (
 		<Row className="teamSummaryWrapper">
 			<Col className="teamSummaryLogoCol">
-				<Image src={teamInfo.primaryLogo} height="50" />
+				<Image src={teamInfo.primaryLogo} height="100" className="centeredColImage" />
 			</Col>
-			<Col className="teamSummaryTotalsCol">
-				Totals here
-			</Col>
+			<TeamTotals stats={stats}/>
 		</Row>
 	)
 }
 
+
+//col component
 const TeamTotals = props => {
 	const stats = props.stats;
+	const totals = stats.totals;
+
+	console.log(totals)
+
+	return (
+		<Col className="teamSummaryTotalsCol">
+			PTS: {totals.points}
+			<br></br>
+			FG: {totals.fgm}/{totals.fga}
+			<br></br>
+			FT: {totals.ftm}/{totals.fta}
+			<br></br>
+			REB: {parseInt(totals.defReb) + parseInt(totals.offReb)} ({totals.defReb}, {totals.offReb})
+			<br></br>
+			AST: {totals.assists}
+			<br></br>
+		</Col>
+	)
 }
 
 const TeamStats = props => {

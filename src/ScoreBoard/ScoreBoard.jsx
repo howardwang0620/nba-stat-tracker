@@ -12,6 +12,10 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col"; 
 import Image from "react-bootstrap/Image";
+import Spinner from "react-bootstrap/Spinner";
+import Dropdown from "react-bootstrap/Dropdown";
+
+// import DatePicker from '../Calendar/components/DatePicker';
 
 import moment from 'moment'
 
@@ -46,7 +50,7 @@ class ScoreBoard extends React.Component {
 
     this.state = {
         date: d,
-        games: [],
+        games: undefined,
         finished: false,
         redirect: false
       }
@@ -76,7 +80,7 @@ class ScoreBoard extends React.Component {
     document.addEventListener("keydown", this.handleKeyPress, false);
     // this.fetchGames();
 
-    this.interval = setInterval(() => this.fetchGames(), 5000);
+    this.interval = setInterval(() => this.fetchGames(), 2000);
   }   
 
   componentWillUnmount() {
@@ -89,7 +93,7 @@ class ScoreBoard extends React.Component {
       var d = state.date;
       d = moment(d, "YYYYMMDD").toDate();
       d.setDate(d.getDate() + 1);
-      return {date: dateToString(d), redirect: true}
+      return {date: dateToString(d), redirect: true, games: undefined}
     }, () => this.fetchGames())
   }
 
@@ -98,7 +102,7 @@ class ScoreBoard extends React.Component {
       var d = state.date;
       d = moment(d, "YYYYMMDD").toDate();
       d.setDate(d.getDate() - 1);
-      return {date: dateToString(d), redirect: true}
+      return {date: dateToString(d), redirect: true, games: undefined}
     }, () => this.fetchGames())
   }
 
@@ -126,8 +130,8 @@ class ScoreBoard extends React.Component {
       this.setState((state) => {
         return {redirect: false}
       }, () => {
-        clearInterval(this.interval)
-        this.interval = setInterval(() => this.fetchGames(), 5000);
+        // clearInterval(this.interval)
+        this.interval = setInterval(() => this.fetchGames(), 2000);
       })
     }
     
@@ -149,31 +153,57 @@ class ScoreBoard extends React.Component {
 
   //fill in GameComponent with state object, one game at a time
   render() {
-    const rows = [];
-    
+    var rows = [];
     const date = this.state.date;
+
     console.log("************RENDERING************")
     console.log("R: " + this.state.redirect)
-    this.state.games.forEach((obj, index) => {
-      const gameObject = obj[Object.keys(obj)[0]];   
-      const key = gameObject.gameData.gameId;
-      
-      const url = '/gamepage/' + date + '/' + key;
-      const element = <div key={key} className="hoverCard" onClick={() => this.props.history.push(url)}>
-                  <GameComponent game={gameObject} date={date} type={TeamContainerEnum.GAME}/>
-                </div>
-      rows.push(element);
-    })
+
+    var element;
+    if(this.state.games) {
+      this.state.games.forEach((obj, index) => {
+        const gameObject = obj[Object.keys(obj)[0]];   
+        const key = gameObject.gameData.gameId;
+        
+        const url = '/gamepage/' + date + '/' + key;
+        element = <div key={key} className="hoverCard" onClick={() => this.props.history.push(url)}>
+                    <GameComponent game={gameObject} date={date} type={TeamContainerEnum.GAME}/>
+                  </div>
+        rows.push(element);
+      })
+    } else {
+      element = (<div key="spinner" className="spinnerIcon">
+                  <Spinner animation="border mx-auto" role="status">
+                    <span className="sr-only">Loading...</span>
+                  </Spinner>
+                </div>)
+      rows.push(element)
+    }
     
     return (
       <div className="App">
         <div className="scoreBoardWrapper mx-auto">
           {this.renderRedirect()}
+          <ScoreBoardNavBar date={this.state.date} />
           {rows}
         </div>
       </div>
     );
   }
+}
+
+const ScoreBoardNavBar = props => {
+  var date = props.date;
+  
+  date = moment(date, 'YYYYMMDD').format("MM/DD/YYYY")
+  console.log(date)
+
+  return(
+    <div className="scoreBoardNav mx-auto rounded-bottom">
+      {date}
+    </div>
+  )
+
 }
 
 export default ScoreBoard;

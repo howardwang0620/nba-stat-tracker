@@ -104,9 +104,8 @@ class GamePage extends React.Component {
 			const stats = game.stats;
 			let element;
 			if(stats) {
-				element = <GamePageLowerComponent key={key} game={game} date={date}/>
+				element = <GamePageLowerComponent key={key} game={game} date={date} inactive={this.state.inactive}/>
 			}
-
 
 			return (
 					<div className="App">
@@ -119,7 +118,6 @@ class GamePage extends React.Component {
 						</div>
 					</div>
 				)
-
 
 		} else {
 			return (

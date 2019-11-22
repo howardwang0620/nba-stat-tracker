@@ -9,7 +9,7 @@ const BoxScoreComponent = props => {
 	const teamId = props.teamId;
 	const stats = props.stats;
 	const data = props.data;
-	const finished = false;
+	const inactive = props.inactive;
 
 	function renderTableData() {
 
@@ -26,7 +26,7 @@ const BoxScoreComponent = props => {
 			
 			return (
 				<tr key={player.personId} style={ index === 4 ? {borderBottom: '2pt solid black'} : {}}>
-					<td id='nameTD' style={ isOnCourt ? { fontWeight: 'bold' } : { fontWeight: 'normal' } }>{name}</td>
+					<td id='nameTD' style={ (isOnCourt && !inactive) ? { fontWeight: 'bold' } : { fontWeight: 'normal' } }>{name}</td>
 					<td>{min}</td>
 					<td title={player['fgp'] + '%'}>{fg}</td>
 					<td title={player['tpp'] + '%'}>{tpg}</td>
@@ -48,7 +48,7 @@ const BoxScoreComponent = props => {
 			<Table hover id={teamId}>
 				<thead>
 					<tr>
-						<th style={{background: bgColor, borderTop: "none"}}>PLAYER</th>
+						<th style={{background: bgColor, borderTop: "none"}}></th>
 						<th style={{background: bgColor, borderTop: "none"}}>MIN</th>
 						<th style={{background: bgColor, borderTop: "none"}}>FG</th>
 						<th style={{background: bgColor, borderTop: "none"}}>3PT</th>

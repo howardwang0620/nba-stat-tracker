@@ -71,10 +71,11 @@ const TeamComponent = props => {
 }
 
 const TeamInfoCol = props => {
+	//<h1 style={{margin: '0 auto'}}>{props.teamName}</h1>
 	// <h1 style={{margin: '0 auto'}}>{props.teamName}<span style={{fontSize: 'x-small'}}>{props.record}</span></h1>
 	return (<Col className="teamInfoCol">
 				<Row className="teamColName" style={{margin: '0 auto'}}>
-					<h1 style={{margin: '0 auto'}}>{props.teamName}</h1>
+					<h1 style={{margin: '0 auto'}}>{props.teamName}<span style={{fontSize: 'small'}}>{props.record}</span></h1>
 				</Row>
 				<Row className="teamColLogo">
 					<Image src={props.logo} height="75" style={{margin: '0 auto'}} className="mx-auto"/>

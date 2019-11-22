@@ -24,6 +24,7 @@ const GamePageTeamComponent = props => {
 	const teamId = props.teamId;
 	const data = props.teamData;
 	const stats = props.teamStats;
+	const inactive = props.inactive;
 		
 	//pass click function to use in BoxScoreComponent <tr>
 	if(stats) {
@@ -34,7 +35,7 @@ const GamePageTeamComponent = props => {
 						<TeamComponent teamInfo={data} stats={stats} />
 					</Col>
 					<Col className="boxScoreCol" xs={8}>
-						<BoxScoreComponent key={teamId} teamId={teamId} stats={stats} data={data} />
+						<BoxScoreComponent key={teamId} teamId={teamId} stats={stats} data={data} inactive={inactive} />
 					</Col>
 				</Row>
 			</div>
