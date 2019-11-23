@@ -53,6 +53,7 @@ const TeamTotals = props => {
 
 	return (
 		<Col className="teamSummaryTotalsCol">
+			<br></br>
 			PTS: {totals.points}
 			<br></br>
 			FG: {totals.fgm}/{totals.fga}

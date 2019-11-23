@@ -51,41 +51,36 @@ class ScoreBoard extends React.Component {
     this.state = {
         date: d,
         games: undefined,
-        finished: false,
-        redirect: false
+        finished: false
       }
   }
   
 
   //time sensitive
   fetchGames() {
-    const d = new Date();
-    if(this.state.date === d.toDateString()) {
-      this.setState({date: d})
-    }
+    console.log("fetch")
     fetch(`/api/getScoreBoard?date=${encodeURIComponent(this.state.date)}`)
     .then(res=>res.json())
     .then(result => {
-      // console.log(result);
 
       this.setState({
         games: result.games,
         finished: result.finished
-      });
+      }, () => {
+          if(!this.state.finished) this.timer = setTimeout(() => this.fetchGames(), 2000)
+        }
+      )
     });
   }
 
   componentDidMount() {
     this.fetchGames();
     document.addEventListener("keydown", this.handleKeyPress, false);
-    // this.fetchGames();
-
-    this.interval = setInterval(() => this.fetchGames(), 2000);
   }   
 
   componentWillUnmount() {
     document.removeEventListener("keydown", this.handleKeyPress, false);
-    clearInterval(this.interval);
+    clearTimeout(this.timer)
   }
 
   incrementDate() {
@@ -93,7 +88,7 @@ class ScoreBoard extends React.Component {
       var d = state.date;
       d = moment(d, "YYYYMMDD").toDate();
       d.setDate(d.getDate() + 1);
-      return {date: dateToString(d), redirect: true, games: undefined}
+      return {date: dateToString(d), games: undefined}
     }, () => this.fetchGames())
   }
 
@@ -102,7 +97,7 @@ class ScoreBoard extends React.Component {
       var d = state.date;
       d = moment(d, "YYYYMMDD").toDate();
       d.setDate(d.getDate() - 1);
-      return {date: dateToString(d), redirect: true, games: undefined}
+      return {date: dateToString(d), games: undefined}
     }, () => this.fetchGames())
   }
 
@@ -113,40 +108,24 @@ class ScoreBoard extends React.Component {
 
   handleKeyPress = (e) => {
     //left arrow press
-    if(e.keyCode === 37) {
-      this.decrementDate();
+    if(this.state.games) {
+      if(e.keyCode === 37) {
+        clearTimeout(this.timer);
+        this.decrementDate();
+      }
+      //right arrow press
+      else if(e.keyCode === 39) {
+        clearTimeout(this.timer);
+        this.incrementDate();
+      }
     }
-    //right arrow press
-    else if(e.keyCode === 39) {
-      this.incrementDate();
-    }
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    console.log("************UPDATING************")
-    prevState.redirect ? console.log("S: " + prevState.redirect) : console.log("S: undefined")
-    prevProps.location.state ? console.log("P: " + prevProps.location.state.redirect) : console.log("P: undefined")
-    if(prevProps.location.state && prevProps.location.state.redirect) {
-      this.setState((state) => {
-        return {redirect: false}
-      }, () => {
-        // clearInterval(this.interval)
-        this.interval = setInterval(() => this.fetchGames(), 2000);
-      })
-    }
-    
-    if(this.state.finished) clearInterval(this.interval)
-
-    console.log("F: " + this.state.redirect)
   }
 
   renderRedirect = () => {
-    console.log("RR: " + this.state.redirect)
     return <Redirect to={{
       pathname: "/" + this.state.date,
       state: {
         date: this.state.date,
-        redirect: this.state.redirect
       }
     }}/>
   }
@@ -155,9 +134,6 @@ class ScoreBoard extends React.Component {
   render() {
     var rows = [];
     const date = this.state.date;
-
-    console.log("************RENDERING************")
-    console.log("R: " + this.state.redirect)
 
     var element;
     if(this.state.games) {
@@ -196,7 +172,6 @@ const ScoreBoardNavBar = props => {
   var date = props.date;
   
   date = moment(date, 'YYYYMMDD').format("MM/DD/YYYY")
-  console.log(date)
 
   return(
     <div className="scoreBoardNav mx-auto rounded-bottom">
