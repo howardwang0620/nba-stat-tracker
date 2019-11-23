@@ -50,14 +50,22 @@ module.exports = function(req, res) {
 			const activePlayers = stats['activePlayers'];
 			
 			// console.log(activePlayers);
+			var dnpHome = [];
+			var dnpAway = [];
 			Object.keys(activePlayers).map(function(key, index) {
 				const playerObj = activePlayers[key];
 				if(playerObj['teamId'] === hTeamId) {
-					stats[hTeamId]['activePlayers'].push(playerObj);
+					if(!playerObj['dnp']) stats[hTeamId]['activePlayers'].push(playerObj);
+					else dnpHome.push(playerObj)
 				} else if(playerObj['teamId'] === vTeamId) {
-					stats[vTeamId]['activePlayers'].push(playerObj);
+					if(!playerObj['dnp']) stats[vTeamId]['activePlayers'].push(playerObj);
+					else dnpAway.push(playerObj)
 				}
 			});
+			
+			//append dnp to bottom of list
+			stats[hTeamId]['activePlayers'] = stats[hTeamId]['activePlayers'].concat(dnpHome)
+			stats[vTeamId]['activePlayers'] = stats[vTeamId]['activePlayers'].concat(dnpAway)
 
 			delete stats['activePlayers'];
 		}

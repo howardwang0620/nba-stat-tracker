@@ -49,7 +49,7 @@ const TeamTotals = props => {
 	const stats = props.stats;
 	const totals = stats.totals;
 
-	console.log(totals)
+	// console.log(totals)
 
 	return (
 		<Col className="teamSummaryTotalsCol">

@@ -10,7 +10,9 @@ const BoxScoreComponent = props => {
 	const stats = props.stats;
 	const data = props.data;
 	const inactive = props.inactive;
-
+	
+	console.log(data.triCode)
+	console.log(stats.activePlayers)
 	function renderTableData() {
 
 		//min, fg (m/a), 3pt (m/a), ft (m/a), reb, ast, to, st, blk, pts
@@ -23,7 +25,15 @@ const BoxScoreComponent = props => {
 			const ft = player['ftm'] + "/" + player['fta'];
 
 			const isOnCourt = player['isOnCourt'];
-			
+			const dnp = player['dnp']
+			if(dnp) {
+				return(	
+					<tr key={player.personId} style={ index === 4 ? {borderBottom: '2pt solid black'} : {}}>
+						<td id='nameTD'>{name}</td>
+						<td colspan='10' style={{textAlign: 'left'}}>{dnp}</td>
+					</tr>
+				)
+			}		
 			return (
 				<tr key={player.personId} style={ index === 4 ? {borderBottom: '2pt solid black'} : {}}>
 					<td id='nameTD' style={ (isOnCourt && !inactive) ? { fontWeight: 'bold' } : { fontWeight: 'normal' } }>{name}</td>
