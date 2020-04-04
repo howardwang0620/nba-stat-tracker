@@ -1,23 +1,24 @@
 ---------TO DO---------
--toggle date with button on bottom left of screen
-	-stay in position as user scrolls
--cache previous periods (quarters) in gamepage component
--bug - find date with no games, make sure component displays "NO GAME"
--Add start date and end date of nba season to json file
-	-allows fixed range of nba games
-	!-removes errors of preseason games, foreign teams, etc.
--display date on top of scoreboard page
--injured player box score
--make cle alt logo smaller, jazz alt logo bigger (need to google again for jazz)
-
+	BIG: 
+		-Calendar drop down on date navbar
+		-cache previous periods (quarters) in gamepage component
+	MED: 
+		-FIX OVERTIME DISPLAY
+			-Multiple OT currently concatednated to one score
+				-(1) Create Pop up that displays all ot scores
+						-Change OT to OT... on table header cell
+				-(2) Make score table scrollable
+				-(3) Do something else
+		-Add start date and end date of nba season to json file
+			-allows fixed range of nba games
+			!-removes errors of preseason games, foreign teams, etc.
+	SMALL:
+		-
 
 ---------TOUCH UP---------
 -keys(complete-ish)
 	-still need to find out if key placement is most efficient
 	-done with duplicate issue
--alter sorting???
-	-show most active games on top -> how to sort active vs halftime games?
-	-halftime games being placed above active games
 -optimize live updating (MED) ???
 	-dont fetch finished games
 
@@ -31,6 +32,11 @@
 -split server file into mulitple files (SMALL)
 -arrow keys for prev/next day (MED)
 -unique url for homepage -> include date value (MED)
+-toggle date with button on bottom left of screen (USED ARROW KEYS)
+-display date on top of scoreboard page
+-injured player box score
+-alter sorting
+	-show most active games on top
 
 
 

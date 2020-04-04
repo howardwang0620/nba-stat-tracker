@@ -70,6 +70,10 @@ class ScoreBoard extends React.Component {
           if(!this.state.finished) this.timer = setTimeout(() => this.fetchGames(), 2000)
         }
       )
+      // }, () => {
+      //     this.timer = setTimeout(() => this.fetchGames(), 5000)
+      //   }
+      // )
     });
   }
 

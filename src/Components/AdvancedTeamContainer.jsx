@@ -1,6 +1,5 @@
 import React from 'react'
 
-import Table from "react-bootstrap/Table"; 
 import Row from "react-bootstrap/Row"; 
 import Col from "react-bootstrap/Col"; 
 import Image from "react-bootstrap/Image"; 
@@ -13,9 +12,6 @@ import { TeamHeaderOrientEnum } from "../enums.js"
 const AdvancedTeamContainer = props => {
 	const gameData = props.gameData;
 	const time =props.time;
-
-	const awayTeam = gameData.awayTeam;
-	const homeTeam = gameData.homeTeam
 
 	return (
 		<Container fluid>
@@ -44,7 +40,6 @@ const TeamComponent = props => {
 	// const dir = direction ? 'rounded-right' : 'rounded-left'
 	// const classes = `teamColWrapper ${dir}`
 	
-	var element;
 	if(orient === TeamHeaderOrientEnum.LEFT) {
 		return (
 			<Col className="teamHeaderColWrapper orient-left rounded-left" style={{backgroundColor: color}}>
@@ -75,7 +70,7 @@ const TeamInfoCol = props => {
 	// <h1 style={{margin: '0 auto'}}>{props.teamName}<span style={{fontSize: 'x-small'}}>{props.record}</span></h1>
 	return (<Col className="teamInfoCol">
 				<Row className="teamColName" style={{margin: '0 auto'}}>
-					<h1 style={{margin: '0 auto'}}>{props.teamName}<span style={{fontSize: 'small'}}>{props.record}</span></h1>
+					<h1 style={{margin: '0 auto', fontSize: '3.0vw'}}>{props.teamName}<span style={{fontSize: '0.5rem'}}>{props.record}</span></h1>
 				</Row>
 				<Row className="teamColLogo">
 					<Image src={props.logo} height="75" style={{margin: '0 auto'}} className="mx-auto"/>

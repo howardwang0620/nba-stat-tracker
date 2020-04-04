@@ -3,6 +3,7 @@ import TeamContainer from './TeamContainer.jsx'
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col"; 
+import ChangeHighlight from "react-change-highlight";
 
 import { TeamContainerEnum } from '../enums.js'
 import AdvancedTeamContainer from './AdvancedTeamContainer.jsx'
@@ -30,7 +31,7 @@ const GameComponent = props => {
   const scoreKey = game.awayTeam.score + game.homeTeam.score;
   const time = getGameTimeValue(game, status);
   // let timeKey = game.gameData.clock;
-  let element;
+  
   if(type === TeamContainerEnum.GAME) {
     return (
       <div className="gameComponentWrapper rounded" style={{backgroundColor: bgColor}}>
@@ -85,7 +86,9 @@ const GameScoreContainer = props => {
 
   return (
     <div className="game-component-container">
-      {element}
+      <ChangeHighlight showAfter={100} hideAfter={1500}>
+        {element}
+      </ChangeHighlight>
     </div>
     )
 }
@@ -145,9 +148,11 @@ const GameTimeContainer = props => {
     <Row className="game-time-container">
       <Col></Col>
       <Col xs={6}>  
-        <span style={{fontSize : props.textSize}}>
-          {time}
-        </span>
+        <ChangeHighlight showAfter={100} hideAfter={1500}>
+          <span style={{fontSize : props.textSize}}>
+            {time}
+          </span>
+        </ChangeHighlight>
       </Col>  
       <Col></Col>
     </Row>

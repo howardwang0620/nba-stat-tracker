@@ -1,10 +1,10 @@
 import React from 'react'
 
 import Table from "react-bootstrap/Table"; 
-import Row from "react-bootstrap/Row"; 
-import Col from "react-bootstrap/Col"; 
-import Image from "react-bootstrap/Image"; 
-import Container from "react-bootstrap/Container"; 
+// import Row from "react-bootstrap/Row"; 
+// import Col from "react-bootstrap/Col"; 
+// import Image from "react-bootstrap/Image"; 
+// import Container from "react-bootstrap/Container"; 
 
 function getScoreElements(triCode, linescore) {
 	
@@ -12,31 +12,38 @@ function getScoreElements(triCode, linescore) {
 		linescore.push({score: "0"})
 	}
 
-	var otScore = 0;
+	let otElement;
+	let modLineScore = linescore.slice(0, 4)
+	if(linescore.length > 4) {
+
+		const otScore = linescore.slice(4 - linescore.length)
+		.reduce((acc, val) => parseInt(acc.score) + parseInt(val.score));
+
+		otElement = <td key="5" >{otScore}</td>
+	}
 
 	return (
 		<tr>
 			<td>{triCode}</td>
-			{ 
-				linescore.map((e, i) => {
-					if(i > 3) {
-						otScore += e.score;
-					}
-					if(i == linescore.length && otScore != 0) return <td key={'5 ' + otScore}>{otScore}</td>
+			{
+				modLineScore.map((e, i) => {
 					return <td key={(i+1) + ' ' + e.score} >{e.score}</td>
-				}) 
+				})
 			}
+			{otElement}
 		</tr>
 	)
 
 }
 
 function renderTable(time, awayTeam, homeTeam) {
-	var awayOt = 0;
-	var homeOt = 0;
-
 	var otElement; 
-	if(awayTeam.linescore.length > 4)  otElement = <td>OT</td>;
+
+	//FIX MULTIPLE OVERTIME USING HOVER COMPONENT
+	//FOR NOW GROUP TOGETHER OT'S AND DISPLAY
+	if(awayTeam.linescore.length > 4)  {
+		otElement = <td>OT</td>
+	};
 
 	return (
 		<Table id="scoreSummaryTable" variant="dark">

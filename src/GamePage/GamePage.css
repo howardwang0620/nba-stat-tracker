@@ -44,7 +44,10 @@
 
 .table { 
   overflow-y: auto;
-  height: 100px; 
+}
+
+.table th, .table td {
+  height: 50px;
 }
 
 .table thead th {
@@ -104,7 +107,76 @@
 }
 
 
+/***********************PLAYER INFO COMPONENT***********************/
+.playerInfoTable {
+  width: 90%;
+  margin-bottom: 0px !important;
+}
 
+.playerInfoTable th, .playerInfoTable td {
+  height: 30px;
+  width: 15px;
+  padding: 0.6rem !important;
+}
+
+.playerInfoTable th {
+  padding-right: 0 !important;
+}
+
+.teamDataColWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.playerWrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow:1;
+}
+
+.playerGameLogWrapper  {
+  flex-grow:1;
+}
+/*.playerInfoWrapper { 
+  display: -ms-flex; 
+  display: -webkit-flex; 
+  display: flex; 
+}
+
+.playerInfoWrapper > div { 
+  flex:1; 
+}
+*/
+
+/***********************PLAYER GAME LOG COMPONENT***********************/
+.gameLogWrapper {
+  margin-top: 3px;
+  overflow-x: scroll;
+}
+
+.gameLogTable {
+  background-color: #FFFFFF;
+  margin-bottom: .5rem;
+}
+.gameLogTable th {
+  color: #FFFFFF;
+  font-size: 1.0rem;
+  background-color: #343a40;
+}
+
+.gameLogTable td {
+  /*color: #FFFFFF;*/
+  font-size: 0.9rem;
+  width: 1%;
+  white-space: nowrap;
+}
+
+.gameLogTable > thead > tr > th {
+  vertical-align: middle;
+}
+
+.gameLogTable > tbody > tr > td {
+  vertical-align: middle;
+}
 
 
 

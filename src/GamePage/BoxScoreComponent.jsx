@@ -11,10 +11,11 @@ const BoxScoreComponent = props => {
 	const data = props.data;
 	const inactive = props.inactive;
 	
-	console.log(data.triCode)
-	console.log(stats.activePlayers)
-	function renderTableData() {
+	// console.log(data.triCode)
+	// console.log(stats.activePlayers)
 
+	function renderTableData() {
+	
 		//min, fg (m/a), 3pt (m/a), ft (m/a), reb, ast, to, st, blk, pts
 		return stats.activePlayers.map((player, index) => {
 			const {min, points, assists, steals, blocks, turnovers} = player;
@@ -27,15 +28,17 @@ const BoxScoreComponent = props => {
 			const isOnCourt = player['isOnCourt'];
 			const dnp = player['dnp']
 			if(dnp) {
-				return(	
-					<tr key={player.personId} style={ index === 4 ? {borderBottom: '2pt solid black'} : {}}>
+				return (	
+					<tr key={player.personId} style={ index === 4 ? {borderBottom: '2pt solid black'} : {}}
+						onClick={() => props.onClick(player.personId)}>
 						<td id='nameTD'>{name}</td>
-						<td colspan='10' style={{textAlign: 'left'}}>{dnp}</td>
+						<td colSpan='10' style={{textAlign: 'left'}}>{dnp}</td>
 					</tr>
 				)
-			}		
+			}
 			return (
-				<tr key={player.personId} style={ index === 4 ? {borderBottom: '2pt solid black'} : {}}>
+				<tr key={player.personId} style={ index === 4 ? {borderBottom: '2pt solid black'} : {}}
+					onClick={() => props.onClick(player.personId)}>
 					<td id='nameTD' style={ (isOnCourt && !inactive) ? { fontWeight: 'bold' } : { fontWeight: 'normal' } }>{name}</td>
 					<td>{min}</td>
 					<td title={player['fgp'] + '%'}>{fg}</td>
