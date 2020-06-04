@@ -157,10 +157,13 @@
   background-color: #FFFFFF;
   margin-bottom: .5rem;
 }
+
 .gameLogTable th {
   color: #FFFFFF;
   font-size: 1.0rem;
   background-color: #343a40;
+  position: sticky;
+  top: 0;
 }
 
 .gameLogTable td {
@@ -178,5 +181,12 @@
   vertical-align: middle;
 }
 
+/***********************MODAL COMPONENT***********************/
+.modal-content {
+  height: 90vh;
+}
+.modal-body {
+  overflow: auto;
+}
 
 

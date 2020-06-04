@@ -60,7 +60,7 @@ module.exports = function(req, res) {
 			res.send(JSON.stringify(gameLog));
 		})
 	}, (err) => {
-		console.log(err)
+		console.log("ERROR:", err)
 		res.send(JSON.stringify(err));
 	})
 }

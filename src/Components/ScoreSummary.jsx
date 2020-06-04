@@ -18,8 +18,8 @@ function getScoreElements(triCode, linescore) {
 
 		const otScore = linescore.slice(4 - linescore.length)
 		.reduce((acc, val) => parseInt(acc.score) + parseInt(val.score));
-
-		otElement = <td key="5" >{otScore}</td>
+		// console.log("OTSCORE:", otScore)
+		otElement = <td key="5" >{otScore.score}</td>
 	}
 
 	return (

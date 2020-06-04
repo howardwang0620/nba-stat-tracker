@@ -3,10 +3,42 @@ import React from 'react'
 import PlayerInfoComponent from './PlayerInfoComponent.jsx'
 import PlayerGameLogComponent from './PlayerGameLogComponent.jsx'
 
+import {renderGameLogTable} from './PlayerGameLogComponent.jsx'
+
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Table from 'react-bootstrap/Table'
+import Button from 'react-bootstrap/Button'
+import Modal from 'react-bootstrap/Modal'
+
+const GAMELOG_LIMIT = 5;
+
+const GameLogModal = props => {
+	const playerInfo = props.playerinfo;
+	const gamelog = props.gamelog;
+
+	console.log(playerInfo)
+	console.log(gamelog)
+	return (
+		<Modal {...props} size="lg" 
+		aria-labelledby="contained-modal-title-vcenter" centered
+		>
+			<Modal.Header closeButton>
+		   		<Modal.Title id="contained-modal-title-vcenter">
+		    		{playerInfo.firstName + " " + playerInfo.lastName}
+		    	</Modal.Title>
+		  	</Modal.Header>
+			<Modal.Body>
+				<PlayerGameLogComponent playerInfo={playerInfo}
+						gameLog={gamelog} />
+			</Modal.Body>
+	  		<Modal.Footer>
+		    	<Button onClick={props.onHide}>Close</Button>
+		  	</Modal.Footer>
+		</Modal>
+	);
+}
 
 export default class PlayerComponent extends React.Component {
 	constructor(props) {
@@ -16,7 +48,8 @@ export default class PlayerComponent extends React.Component {
 			date: props.date,
 			playerInfo: props.playerInfo,
 			playerHeadshot: undefined,
-			playerGameLog: undefined
+			playerGameLog: undefined,
+			modalShow: false
 		};
 	}
 
@@ -41,15 +74,27 @@ export default class PlayerComponent extends React.Component {
     			playerHeadshot: result
     		})
     	})
+    	.catch(error=> {
+    		console.log("Error:", error)
+    	})
 	}
 
 	fetchGameLog(year, playerId) {
-		fetch(`/api/getGameLog/?year=${encodeURIComponent(year)}
+		fetch(`/api/getGameLog-v2/?year=${encodeURIComponent(year - 1)}
 			&playerId=${encodeURIComponent(playerId)}`)
-		.then(res => res.json())
+		.then(res => {
+			return res.json()
+		})
 		.then(result=> {
 			this.setState({playerGameLog: result})
 		})
+		.catch(error=> {
+    		console.log("Error:", error)
+    	})
+	}
+
+	setModalShow(bool) {
+		this.setState({modalShow: bool})
 	}
 
 	render() {
@@ -63,6 +108,11 @@ export default class PlayerComponent extends React.Component {
 			display: 'flex',
 			justifyContent: 'center',
 			alignItems: 'center'
+		}
+
+		let gameLog;
+		if(this.state.playerGameLog) {
+			gameLog = this.state.playerGameLog.slice(0, Math.min(this.state.playerGameLog.length, GAMELOG_LIMIT))
 		}
 
 		return (
@@ -82,8 +132,16 @@ export default class PlayerComponent extends React.Component {
 				</div>
 				<div className="playerGameLogWrapper">
 					<PlayerGameLogComponent playerInfo={this.state.playerInfo}
-					gameLog={this.state.playerGameLog} />
+					gameLog={gameLog} />
+					<Button variant="secondary" onClick={() => this.setModalShow(true)}>Game Log</Button>
 				</div>
+
+				<GameLogModal
+			        show={this.state.modalShow}
+			        onHide={() => this.setModalShow(false)}
+			        playerinfo={this.state.playerInfo}
+			        gamelog={this.state.playerGameLog}
+		      	/>
 			</div>
 		)
 	}

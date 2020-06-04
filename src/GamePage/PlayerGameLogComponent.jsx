@@ -7,31 +7,29 @@ import Spinner from 'react-bootstrap/Spinner'
 const PlayerGameLogComponent = props => {
 	const playerInfo = props.playerInfo
 	const gamelog = props.gameLog
+	console.log(gamelog)
 
 	function renderGameLogTable() {
 		return gamelog.map((game, index) => {
-			const monthDate = game.date.substring(4,6) + "/" + game.date.substring(6,8);
-			const gameCell = (game.isHomeGame) ? monthDate + " vs " + game.opponentTeam :
-												monthDate + " @ " + game.opponentTeam;
-			const score = (game.teamScore > game.opponentScore) ? 
-				"W " + game.teamScore + "-" + game.opponentScore : 
-				"L " + game.teamScore + "-" + game.opponentScore
-
-			let stats = game.stats
+			const monthDate = game.GAME_DATE.substring(5,7) + "/" + game.GAME_DATE.substring(8,10);
+			const wl = (game.WL === 0) ? 'L' : 'W' 
+			const gameCell = game.MATCHUP + " " + wl;
+			const plusMinus = game.PLUS_MINUS > 0 ? "+" + game.PLUS_MINUS : game.PLUS_MINUS
 			return (
-				<tr key={game.gameId}>
+				<tr key={game.GAME_ID}>
+					<td>{monthDate}</td>
 					<td>{gameCell}</td>
-					<td>{score}</td>
-					<td>{stats.min}</td>
-					<td>{stats.fgm}/{stats.fga}</td>
-					<td>{stats.tpm}/{stats.tpa}</td>
-					<td>{stats.ftm}/{stats.fta}</td>
-					<td>{stats.totReb}</td>
-					<td>{stats.assists}</td>
-					<td>{stats.steals}</td>
-					<td>{stats.blocks}</td>
-					<td>{stats.turnovers}</td>
-					<td>{stats.points}</td>
+					<td>{game.MIN}</td>
+					<td>{game.FGM}/{game.FGA}</td>
+					<td>{game.FG3M}/{game.FG3A}</td>
+					<td>{game.FTM}/{game.FTA}</td>
+					<td>{game.REB}</td>
+					<td>{game.AST}</td>
+					<td>{game.STL}</td>
+					<td>{game.BLK}</td>
+					<td>{game.TOV}</td>
+					<td>{game.PTS}</td>
+					<td>{plusMinus}</td>
 				</tr>
 			)
 		})
@@ -54,13 +52,13 @@ const PlayerGameLogComponent = props => {
 						<th>BLK</th>
 						<th>TO</th>
 						<th>PTS</th>
+						<th>+/-</th>
 					</tr>
 				</thead>
 				<tbody>
-					{renderGameLogTable()}
+					{renderGameLogTable(gamelog)}
 				</tbody>
 			</Table>
-			<Button variant="secondary">More</Button>{' '}
 		</div>
 	} else {
 		return (
