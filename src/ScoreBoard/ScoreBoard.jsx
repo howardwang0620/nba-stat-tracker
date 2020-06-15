@@ -141,16 +141,21 @@ class ScoreBoard extends React.Component {
 
     var element;
     if(this.state.games) {
-      this.state.games.forEach((obj, index) => {
-        const gameObject = obj[Object.keys(obj)[0]];   
-        const key = gameObject.gameData.gameId;
-        
-        const url = '/gamepage/' + date + '/' + key;
-        element = <div key={key} className="hoverCard" onClick={() => this.props.history.push(url)}>
-                    <GameComponent game={gameObject} date={date} type={TeamContainerEnum.GAME}/>
-                  </div>
+      if(this.state.games.length == 0) {
+        element = (<div> No Games Listed</div>)
         rows.push(element);
-      })
+      } else {
+        this.state.games.forEach((obj, index) => {
+          const gameObject = obj[Object.keys(obj)[0]];   
+          const key = gameObject.gameData.gameId;
+          
+          const url = '/gamepage/' + date + '/' + key;
+          element = <div key={key} className="hoverCard" onClick={() => this.props.history.push(url)}>
+                      <GameComponent game={gameObject} date={date} type={TeamContainerEnum.GAME}/>
+                    </div>
+          rows.push(element);
+        })
+      }
     } else {
       element = (<div key="spinner" className="spinnerIcon">
                   <Spinner animation="border mx-auto" role="status">

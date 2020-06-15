@@ -22,12 +22,14 @@ const routing = (
 					state: {date: date}
 				}} />
 			)} /> 
-
 			<Route exact path="/:date" component={ScoreBoard} />
 	  		<Route path="/gamepage/:date/:gameid" component={GamePage} />
 	  	</Switch>
   	</Router>
 )
+
+console.log("INDEX FILE HERE")
+console.log(routing)
 
 
 ReactDOM.render(routing, document.getElementById('root'));

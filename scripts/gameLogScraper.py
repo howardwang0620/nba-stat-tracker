@@ -6,7 +6,7 @@ import json
 import os
 import time
 
-# pull up players json to get all player ids
+# pull players json to get all player ids
 # iterate thru each id, finding game logs and inserting 
 # into mysql db, where each table is playerID
 # tables will essentially be game logs where
@@ -105,6 +105,7 @@ def commitPlayerToDB(conn, db, PLAYER_ID):
 		gamelog = playergamelog.PlayerGameLog(player_id=PLAYER_ID, season = '2019')
 		df = gamelog.get_data_frames()[0]
 
+		#insert games into table
 		print("Inserting games...")
 		for row in df.itertuples():
 			cursor.execute(insertRecord(db, row))
@@ -120,7 +121,7 @@ DB_NAME = "nba-stats"
 conn = mysql.connector.connect(
   host="127.0.0.1",
   user="root",
-  passwd="1234",
+  passwd="12345678",
   db=DB_NAME
 )
 

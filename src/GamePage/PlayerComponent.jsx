@@ -71,7 +71,7 @@ export default class PlayerComponent extends React.Component {
     	.then(res=>res.json())
     	.then(result=> {
     		this.setState({
-    			playerHeadshot: result
+    			playerHeadshot: result.path
     		})
     	})
     	.catch(error=> {
@@ -86,7 +86,9 @@ export default class PlayerComponent extends React.Component {
 			return res.json()
 		})
 		.then(result=> {
-			this.setState({playerGameLog: result})
+			console.log(result)
+			if(result.success) this.setState({playerGameLog: result.gamelog})
+			else this.setState({playerGameLog: []})
 		})
 		.catch(error=> {
     		console.log("Error:", error)

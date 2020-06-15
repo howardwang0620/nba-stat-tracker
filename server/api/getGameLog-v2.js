@@ -8,7 +8,7 @@ module.exports = function(req, res) {
 	var conn = mysql.createConnection({
 		host: "127.0.0.1",
 		user: "root",
-		password: "1234"
+		password: "12345678"
 	})
 
 	conn.connect(function(err) {
@@ -20,11 +20,15 @@ module.exports = function(req, res) {
 	console.log(sql)
 
 	conn.query(sql, function (err, result) {
-		if (err) throw err;
+		if (err) {
+			console.log(err);
+            res.send({ success: false, message: 'query error', error: err });
+            return;
+		}
 		console.log("Query successful");
 		result = result.reverse();
 		// result = result.slice(0, Math.min(result.length, NUMBER_OF_GAMES))
 		conn.end();
-		res.send(JSON.stringify(result));
+		res.send({ success: true, message: 'successful query', gamelog: result});
 	});
 }
