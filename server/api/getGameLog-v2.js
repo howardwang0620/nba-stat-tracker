@@ -1,14 +1,15 @@
 var mysql = require('mysql');
-const DB_NAME = "nba-stats";
+var config = require('./db-config.js');
 
 module.exports = function(req, res) {
 	var playerId = req.query.playerId;
 	var year = req.query.year;
 	
 	var conn = mysql.createConnection({
-		host: "127.0.0.1",
-		user: "root",
-		password: "12345678"
+		host: config.mysqlDB.host,
+		user: config.mysqlDB.user,
+		password: config.mysqlDB.password,
+		db: config.mysqlDB.db
 	})
 
 	conn.connect(function(err) {
@@ -16,7 +17,7 @@ module.exports = function(req, res) {
 		console.log("Connected")
 	})
 
-	var sql = `SELECT * FROM \`${DB_NAME}\`.\`${playerId}\``
+	var sql = `SELECT * FROM \`${config.mysqlDB.db}\`.\`${playerId}\``
 	console.log(sql)
 
 	conn.query(sql, function (err, result) {

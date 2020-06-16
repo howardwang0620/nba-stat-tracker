@@ -7,7 +7,7 @@ import Spinner from 'react-bootstrap/Spinner'
 const PlayerGameLogComponent = props => {
 	const playerInfo = props.playerInfo
 	const gamelog = props.gameLog
-	console.log(gamelog)
+	// console.log(gamelog)
 
 	function renderGameLogTable() {
 		return gamelog.map((game, index) => {

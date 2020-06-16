@@ -28,10 +28,6 @@ const routing = (
   	</Router>
 )
 
-console.log("INDEX FILE HERE")
-console.log(routing)
-
-
 ReactDOM.render(routing, document.getElementById('root'));
 
 // ReactDOM.render(<Tmp />, document.getElementById('root'));
