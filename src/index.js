@@ -22,6 +22,12 @@ const routing = (
 					state: {date: date}
 				}} />
 			)} /> 
+			<Route exact path="/nba-stat-tracker" render={() => (
+				<Redirect from ="/nba-stat-tracker" to={{
+					pathname: '/' + date,
+					state: {date: date}
+				}} />
+			)} /> 
 			<Route exact path="/:date" component={ScoreBoard} />
 	  		<Route path="/gamepage/:date/:gameid" component={GamePage} />
 	  	</Switch>

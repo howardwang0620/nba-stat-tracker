@@ -40,13 +40,14 @@ import moment from 'moment'
 class ScoreBoard extends React.Component {
   constructor(props) {
     super(props);
-    
+    console.log(this.props.match.params.date)
     var d = dateToString(new Date());
     // d = new Date('November 18 2019')
     // d.setTime(d.getTime() - 21*60*1000);
     // let d;
     if(this.props.location.state) d = this.props.location.state.date
     else d = this.props.match.params.date
+
 
     this.state = {
         date: d,

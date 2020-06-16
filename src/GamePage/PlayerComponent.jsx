@@ -18,8 +18,6 @@ const GameLogModal = props => {
 	const playerInfo = props.playerinfo;
 	const gamelog = props.gamelog;
 
-	console.log(playerInfo)
-	console.log(gamelog)
 	return (
 		<Modal {...props} size="lg" 
 		aria-labelledby="contained-modal-title-vcenter" centered
