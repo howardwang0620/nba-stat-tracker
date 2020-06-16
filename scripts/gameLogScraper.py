@@ -84,11 +84,7 @@ def insertRecord(DB, DATA):
 	#conn: connection to mysql server
 	#db: name of database being written into
 	#PLAYER_ID: ID of player to be committed
-def commitPlayerToDB(conn, PLAYER_ID):
-	#Get name of DB
-	cursor.execute("SELECT DATABASE()")
-	db = cursor.fetchone()[0]
-
+def commitPlayerToDB(conn, db, PLAYER_ID):
 	#First check if mysql db contains player_id table
 	cursor = conn.cursor();
 	stmt = "SHOW TABLES LIKE '{}'".format(PLAYER_ID)
@@ -125,6 +121,12 @@ def commitPlayerToDB(conn, PLAYER_ID):
 #Connect to database
 conn = db_conn.connect()
 
+#Get name of DB
+cursor = conn.cursor()
+cursor.execute("SELECT DATABASE()")
+DB_NAME = cursor.fetchone()[0]
+cursor.close()
+
 #retrieve json file with all player ids
 path = os.path.join(os.getcwd(), "../data/players.json")
 path = os.path.normpath(path)
@@ -139,7 +141,7 @@ for PLAYER_ID in playerJSON:
 	count+=1
 	print("Player:" , playerJSON[PLAYER_ID]["NBA_FullName"], f"({PLAYER_ID})", f"({count}/{len(playerJSON)})")
 	time.sleep(.3)
-	commitPlayerToDB(conn, PLAYER_ID)
+	commitPlayerToDB(conn, DB_NAME, PLAYER_ID)
 
 conn.close()
 
