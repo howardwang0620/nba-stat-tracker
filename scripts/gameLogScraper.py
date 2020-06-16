@@ -1,6 +1,7 @@
 from nba_api.stats.endpoints import playergamelog
 from nba_api.stats.static import teams
 import mysql.connector
+import db_conn
 import datetime
 import json
 import os
@@ -92,6 +93,7 @@ def commitPlayerToDB(conn, db, PLAYER_ID):
 
 	#if table exists, add records to existing table (...IMPLEMENTING)
 	if(result):
+
 		print(PLAYER_ID, "table exists, no action taken")
 
 	# if table does not exist, create table and insert entire game log
@@ -117,13 +119,7 @@ def commitPlayerToDB(conn, db, PLAYER_ID):
 		print("Finished creating table", PLAYER_ID)
 
 #Connect to database
-DB_NAME = "nba-stats"
-conn = mysql.connector.connect(
-  host="127.0.0.1",
-  user="root",
-  passwd="12345678",
-  db=DB_NAME
-)
+conn = db_conn.connect()
 
 #retrieve json file with all player ids
 path = os.path.join(os.getcwd(), "../data/players.json")
@@ -133,7 +129,7 @@ path = os.path.normpath(path)
 with open(path) as f:
 	playerJSON = json.load(f)
 
-# write players to tables
+write players to tables
 count = 0;
 for PLAYER_ID in playerJSON:
 	count+=1
