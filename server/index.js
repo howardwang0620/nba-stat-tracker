@@ -14,6 +14,7 @@ const getGameLog = require('./api/getGameLog.js')
 const getGameLogV2 = require('./api/getGameLog-v2.js')
 const getHeadshotPath = require('./api/getHeadshotPath.js')
 
+
 app.get('/api/getScoreBoard', getScoreBoard);
 app.get('/api/getBoxScore', getBoxScore);
 app.get('/api/getPlayByPlay', getPlayByPlay);
@@ -22,5 +23,5 @@ app.get('/api/getGameLog-v2', getGameLogV2);
 app.get('/api/getHeadshotPath', getHeadshotPath);
 
 app.listen(3001, () =>
-  console.log('Express server is running on localhost:3001')
+  console.log('Express server is running on PORT:3001')
 );

@@ -4,6 +4,8 @@ var config = require('./db-config.js');
 module.exports = function(req, res) {
 	var playerId = req.query.playerId;
 	var year = req.query.year;
+
+	console.log(config.mysqlDB);
 	
 	var conn = mysql.createConnection({
 		host: config.mysqlDB.host,
