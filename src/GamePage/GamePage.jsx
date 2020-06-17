@@ -37,7 +37,7 @@ class GamePage extends React.Component {
 
 
 	fetchBoxScore = (_callback, state) => {
-		fetch(`/api/getBoxScore?date=${encodeURIComponent(this.state.date)}&id=${encodeURIComponent(this.state.id)}`)
+		fetch(`http://34.211.177.223:3001/api/getBoxScore?date=${encodeURIComponent(this.state.date)}&id=${encodeURIComponent(this.state.id)}`)
 	    .then(res=>res.json())
 	    .then(result => {
 	    	_callback(result, result.gameData.period.current, result.gameData.statusNum);
@@ -57,7 +57,7 @@ class GamePage extends React.Component {
 				inactive: (statusNum === 3 || statusNum === 1)
 			});
     	} else {
-    		fetch(`/api/getPlayByPlay?date=${encodeURIComponent(this.state.date)}
+    		fetch(`http://34.211.177.223:3001/api/getPlayByPlay?date=${encodeURIComponent(this.state.date)}
 					&id=${encodeURIComponent(this.state.id)}
 					&period=${encodeURIComponent(period)}`)
 			.then(res=>res.json())

@@ -65,7 +65,7 @@ export default class PlayerComponent extends React.Component {
 
 	fetchHeadshot(playerId) {
 		//grabs player game log data and player headshot location
-		fetch(`/api/getHeadshotPath/?playerId=${encodeURIComponent(playerId)}`)
+		fetch(`http://34.211.177.223:3001/api/getHeadshotPath/?playerId=${encodeURIComponent(playerId)}`)
     	.then(res=>res.json())
     	.then(result=> {
     		this.setState({
@@ -78,7 +78,7 @@ export default class PlayerComponent extends React.Component {
 	}
 
 	fetchGameLog(year, playerId) {
-		fetch(`/api/getGameLog-v2/?year=${encodeURIComponent(year - 1)}
+		fetch(`http://34.211.177.223:3001/api/getGameLog-v2/?year=${encodeURIComponent(year - 1)}
 			&playerId=${encodeURIComponent(playerId)}`)
 		.then(res => {
 			return res.json()
