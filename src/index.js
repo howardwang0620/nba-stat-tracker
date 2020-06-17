@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './App.css'
+import './App.css';
 import './index.css';
 import ScoreBoard from './ScoreBoard/ScoreBoard.jsx';
 import GamePage from './GamePage/GamePage.jsx'
@@ -10,10 +10,9 @@ import * as serviceWorker from './serviceWorker';
 import { Route, BrowserRouter as Router , Switch, Redirect} from 'react-router-dom';
 
 import "bootstrap/dist/css/bootstrap.min.css";
-
+console.log("index js file")
 const date = dateToString(new Date());
 const routing = (
-
   	<Router>
 		<Switch>
   			<Route exact path="/" render={() => (
