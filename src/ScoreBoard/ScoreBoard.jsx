@@ -61,7 +61,10 @@ class ScoreBoard extends React.Component {
   fetchGames() {
     console.log("fetch", this.state.date)
     fetch(`/api/getScoreBoard?date=${encodeURIComponent(this.state.date)}`)
-    .then(res=> res.json())
+    .then(res=> {
+      console.log("RES PULLED:", res)
+      return res.json()
+    })
     .then(result => {
       console.log(result)
       this.setState({
