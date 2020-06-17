@@ -60,7 +60,7 @@ class ScoreBoard extends React.Component {
   //time sensitive
   fetchGames() {
     console.log("fetch", this.state.date)
-    fetch(`/api/getScoreBoard?date=${encodeURIComponent(this.state.date)}`)
+    fetch(`http://34.211.177.223:3001/api/getScoreBoard?date=${encodeURIComponent(this.state.date)}`)
     .then(res=> {
       console.log("RES PULLED:", res)
       return res.json()
